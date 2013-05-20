@@ -11,7 +11,7 @@
  * @property double $location_lng
  *
  * The followings are the available model relations:
- * @property TblPlaceTypes $type
+ * @property PlaceType $type
  */
 class Place extends CActiveRecord
 {
@@ -49,7 +49,7 @@ class Place extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'type' => array(self::BELONGS_TO, 'TblPlaceTypes', 'typeid'),
+			'type' => array(self::HAS_ONE, 'PlaceType', 'fk_place_placetype_id'),
 		);
 	}
 

@@ -7,8 +7,9 @@
  * @property integer $id
  * @property string $title
  * @property integer $typeid
- * @property double $location_lat
- * @property double $location_lng
+ * @property float $location_lat
+ * @property float $location_lng
+ * @property string $address
  *
  * The followings are the available model relations:
  * @property PlaceType $type
@@ -31,7 +32,7 @@ class Place extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title', 'required'),
+			array('title, address', 'required'),
 			array('typeid', 'numerical', 'integerOnly'=>true),
 			array('location_lat, location_lng', 'numerical'),
 			array('title', 'length', 'max'=>255),
@@ -90,6 +91,7 @@ class Place extends CActiveRecord
 		$criteria->compare('typeid',$this->typeid);
 		$criteria->compare('location_lat',$this->location_lat);
 		$criteria->compare('location_lng',$this->location_lng);
+		$criteria->compare('address',$this->address);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

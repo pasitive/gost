@@ -603,3 +603,312 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/favicon.ico
 ---
+2013/05/22 15:14:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in Z:\home\gost.local\framework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\gost.local\framework\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 Z:\home\gost.local\framework\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\gost.local\www\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/05/22 15:14:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in Z:\home\gost.local\framework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\gost.local\framework\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 Z:\home\gost.local\framework\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\gost.local\www\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/05/22 15:15:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in Z:\home\gost.local\framework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\gost.local\framework\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 Z:\home\gost.local\framework\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\gost.local\www\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/05/22 15:15:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "serviceCat".' in Z:\home\gost.local\framework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\gost.local\framework\framework\web\CWebApplication.php(141): CWebApplication->runController('serviceCat')
+#1 Z:\home\gost.local\framework\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\gost.local\www\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php/serviceCat
+---
+2013/05/22 15:15:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in Z:\home\gost.local\framework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\gost.local\framework\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 Z:\home\gost.local\framework\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\gost.local\www\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/05/22 15:15:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "serviceCats".' in Z:\home\gost.local\framework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\gost.local\framework\framework\web\CWebApplication.php(141): CWebApplication->runController('serviceCats')
+#1 Z:\home\gost.local\framework\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\gost.local\www\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php/serviceCats
+---
+2013/05/22 15:15:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in Z:\home\gost.local\framework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\gost.local\framework\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 Z:\home\gost.local\framework\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\gost.local\www\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/05/22 15:15:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in Z:\home\gost.local\framework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\gost.local\framework\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 Z:\home\gost.local\framework\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\gost.local\www\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/05/22 15:15:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in Z:\home\gost.local\framework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\gost.local\framework\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 Z:\home\gost.local\framework\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\gost.local\www\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/05/22 15:15:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "serviceCat/index".' in Z:\home\gost.local\framework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\gost.local\framework\framework\web\CWebApplication.php(141): CWebApplication->runController('serviceCat/inde...')
+#1 Z:\home\gost.local\framework\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\gost.local\www\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php/serviceCat/index
+---
+2013/05/22 15:15:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in Z:\home\gost.local\framework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\gost.local\framework\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 Z:\home\gost.local\framework\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\gost.local\www\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/05/22 15:15:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "serviceCats/index".' in Z:\home\gost.local\framework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\gost.local\framework\framework\web\CWebApplication.php(141): CWebApplication->runController('serviceCats/ind...')
+#1 Z:\home\gost.local\framework\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\gost.local\www\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php/serviceCats/index
+---
+2013/05/22 15:15:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in Z:\home\gost.local\framework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\gost.local\framework\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 Z:\home\gost.local\framework\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\gost.local\www\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/05/22 15:15:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "serviceCat/index".' in Z:\home\gost.local\framework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\gost.local\framework\framework\web\CWebApplication.php(141): CWebApplication->runController('serviceCat/inde...')
+#1 Z:\home\gost.local\framework\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\gost.local\www\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php/serviceCat/index
+---
+2013/05/22 15:15:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in Z:\home\gost.local\framework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\gost.local\framework\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 Z:\home\gost.local\framework\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\gost.local\www\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/05/22 15:15:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "serviceCats".' in Z:\home\gost.local\framework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\gost.local\framework\framework\web\CWebApplication.php(141): CWebApplication->runController('serviceCats')
+#1 Z:\home\gost.local\framework\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\gost.local\www\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php/serviceCats
+---
+2013/05/22 15:15:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "serviceCat".' in Z:\home\gost.local\framework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\gost.local\framework\framework\web\CWebApplication.php(141): CWebApplication->runController('serviceCat')
+#1 Z:\home\gost.local\framework\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\gost.local\www\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php/serviceCat
+---
+2013/05/22 15:15:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in Z:\home\gost.local\framework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\gost.local\framework\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 Z:\home\gost.local\framework\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\gost.local\www\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/05/22 15:16:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in Z:\home\gost.local\framework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\gost.local\framework\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 Z:\home\gost.local\framework\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\gost.local\www\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/05/22 15:16:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in Z:\home\gost.local\framework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\gost.local\framework\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 Z:\home\gost.local\framework\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\gost.local\www\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/05/22 15:16:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in Z:\home\gost.local\framework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\gost.local\framework\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 Z:\home\gost.local\framework\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\gost.local\www\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/05/22 15:16:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in Z:\home\gost.local\framework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\gost.local\framework\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 Z:\home\gost.local\framework\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\gost.local\www\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/05/22 15:16:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in Z:\home\gost.local\framework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\gost.local\framework\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 Z:\home\gost.local\framework\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\gost.local\www\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/05/22 15:17:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in Z:\home\gost.local\framework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\gost.local\framework\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 Z:\home\gost.local\framework\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\gost.local\www\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/05/22 15:19:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in Z:\home\gost.local\framework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\gost.local\framework\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 Z:\home\gost.local\framework\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\gost.local\www\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/05/22 15:19:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in Z:\home\gost.local\framework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\gost.local\framework\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 Z:\home\gost.local\framework\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\gost.local\www\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/05/22 15:20:00 [error] [php] call_user_func() expects parameter 1 to be a valid callback, first array member is not a valid class name or object (Z:\home\gost.local\framework\framework\web\helpers\CHtml.php:2136)
+Stack trace:
+#0 Z:\home\gost.local\www\protected\views\serviceCat\_form.php(24): listData()
+#1 Z:\home\gost.local\framework\framework\web\CBaseController.php(126): require()
+#2 Z:\home\gost.local\framework\framework\web\CBaseController.php(95): ServiceCatController->renderInternal()
+#3 Z:\home\gost.local\framework\framework\web\CController.php(869): ServiceCatController->renderFile()
+#4 Z:\home\gost.local\www\protected\views\serviceCat\create.php(18): ServiceCatController->renderPartial()
+#5 Z:\home\gost.local\framework\framework\web\CBaseController.php(126): require()
+#6 Z:\home\gost.local\framework\framework\web\CBaseController.php(95): ServiceCatController->renderInternal()
+#7 Z:\home\gost.local\framework\framework\web\CController.php(869): ServiceCatController->renderFile()
+#8 Z:\home\gost.local\framework\framework\web\CController.php(782): ServiceCatController->renderPartial()
+#9 Z:\home\gost.local\www\protected\controllers\ServiceCatController.php(79): ServiceCatController->render()
+#10 Z:\home\gost.local\framework\framework\web\actions\CInlineAction.php(49): ServiceCatController->actionCreate()
+#11 Z:\home\gost.local\framework\framework\web\CController.php(308): CInlineAction->runWithParams()
+#12 Z:\home\gost.local\framework\framework\web\filters\CFilterChain.php(133): ServiceCatController->runAction()
+#13 Z:\home\gost.local\framework\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#14 Z:\home\gost.local\framework\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#15 Z:\home\gost.local\framework\framework\web\filters\CInlineFilter.php(58): ServiceCatController->filterAccessControl()
+#16 Z:\home\gost.local\framework\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#17 Z:\home\gost.local\framework\framework\web\CController.php(291): CFilterChain->run()
+#18 Z:\home\gost.local\framework\framework\web\CController.php(265): ServiceCatController->runActionWithFilters()
+#19 Z:\home\gost.local\framework\framework\web\CWebApplication.php(282): ServiceCatController->run()
+#20 Z:\home\gost.local\framework\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#21 Z:\home\gost.local\framework\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#22 Z:\home\gost.local\www\index.php(14): CWebApplication->run()
+REQUEST_URI=/index.php/serviceCat/create
+in Z:\home\gost.local\www\protected\views\serviceCat\_form.php (24)
+in Z:\home\gost.local\www\protected\views\serviceCat\create.php (18)
+in Z:\home\gost.local\www\protected\controllers\ServiceCatController.php (79)
+2013/05/22 15:20:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in Z:\home\gost.local\framework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\gost.local\framework\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 Z:\home\gost.local\framework\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\gost.local\www\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/05/22 15:20:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in Z:\home\gost.local\framework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\gost.local\framework\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 Z:\home\gost.local\framework\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\gost.local\www\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/05/22 15:22:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in Z:\home\gost.local\framework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\gost.local\framework\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 Z:\home\gost.local\framework\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\gost.local\www\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/05/22 15:23:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in Z:\home\gost.local\framework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\gost.local\framework\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 Z:\home\gost.local\framework\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\gost.local\www\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/05/22 15:23:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in Z:\home\gost.local\framework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\gost.local\framework\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 Z:\home\gost.local\framework\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\gost.local\www\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/05/22 15:23:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in Z:\home\gost.local\framework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\gost.local\framework\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 Z:\home\gost.local\framework\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\gost.local\www\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/05/22 15:23:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in Z:\home\gost.local\framework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\gost.local\framework\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 Z:\home\gost.local\framework\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\gost.local\www\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/05/22 15:24:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in Z:\home\gost.local\framework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\gost.local\framework\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 Z:\home\gost.local\framework\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\gost.local\www\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/05/22 15:24:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in Z:\home\gost.local\framework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\home\gost.local\framework\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 Z:\home\gost.local\framework\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 Z:\home\gost.local\www\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---

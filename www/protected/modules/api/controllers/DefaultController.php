@@ -4,6 +4,7 @@ class DefaultController extends Controller
 {
 	public function actionIndex()
 	{
-		$this->render('index');
+		$r = new Response();
+        print $r;
 	}
 }

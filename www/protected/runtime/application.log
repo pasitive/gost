@@ -1,1 +1,20 @@
 2013/05/17 14:49:46 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gost.tbl_migration' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `tbl_migration`.
+2013/05/22 13:30:22 [error] [php] PDO::__construct(): [2002] No such file or directory (trying to connect via unix:///var/mysql/mysql.sock) (/Users/denisboldinov/Sites/gost.dev/framework/framework/db/CDbConnection.php:423)
+Stack trace:
+#0 /Users/denisboldinov/Sites/gost.dev/framework/framework/db/CDbConnection.php(330): CDbConnection->open()
+#1 /Users/denisboldinov/Sites/gost.dev/framework/framework/db/CDbConnection.php(308): CDbConnection->setActive()
+#2 /Users/denisboldinov/Sites/gost.dev/framework/framework/base/CModule.php(387): CDbConnection->init()
+#3 /Users/denisboldinov/Sites/gost.dev/framework/framework/cli/commands/MigrateCommand.php(442): CConsoleApplication->getComponent()
+#4 /Users/denisboldinov/Sites/gost.dev/framework/framework/cli/commands/MigrateCommand.php(451): MigrateCommand->getDbConnection()
+#5 /Users/denisboldinov/Sites/gost.dev/framework/framework/cli/commands/MigrateCommand.php(482): MigrateCommand->getMigrationHistory()
+#6 /Users/denisboldinov/Sites/gost.dev/framework/framework/cli/commands/MigrateCommand.php(84): MigrateCommand->getNewMigrations()
+#7 unknown(0): MigrateCommand->actionUp()
+#8 /Users/denisboldinov/Sites/gost.dev/framework/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs()
+#9 /Users/denisboldinov/Sites/gost.dev/framework/framework/console/CConsoleCommandRunner.php(67): MigrateCommand->run()
+#10 /Users/denisboldinov/Sites/gost.dev/framework/framework/console/CConsoleApplication.php(91): CConsoleCommandRunner->run()
+#11 /Users/denisboldinov/Sites/gost.dev/framework/framework/base/CApplication.php(169): CConsoleApplication->processRequest()
+#12 /Users/denisboldinov/Sites/gost.dev/framework/framework/yiic.php(33): CConsoleApplication->run()
+#13 /Users/denisboldinov/Sites/gost.dev/www/protected/yiic.php(7): require_once()
+#14 /Users/denisboldinov/Sites/gost.dev/www/protected/yiic(4): require_once()
+
+2013/05/22 13:30:33 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gost.tbl_migration' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `tbl_migration`.

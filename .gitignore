@@ -3,3 +3,5 @@ www/assets
 www/protected/runtime
 *.log
 /www/protected/runtime/application.log
+www/protected/config/*
+!www/protected/config/*.example.php

@@ -9,6 +9,10 @@ return array(
 	// preloading 'log' component
 	'preload'=>array('log'),
 
+    'modules'=>array(
+        'api' => array(),
+    ),
+
 	// application components
 	'components'=>array(
         'db'=>array(

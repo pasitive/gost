@@ -5,3 +5,5 @@ www/protected/runtime
 /www/protected/runtime/application.log
 www/protected/config/*
 !www/protected/config/*.example.php
+www/uploads/*
+!.gitkeep

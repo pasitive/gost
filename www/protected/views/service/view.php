@@ -26,6 +26,9 @@ $this->menu=array(
 		'title',
 		'desc',
 		'price',
-		'img',
+		array(
+            'type' => 'image',
+            'value' => $model->getImg(450),
+        ),
 	),
 )); ?>

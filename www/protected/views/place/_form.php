@@ -27,7 +27,7 @@
 
     <div class="row">
         <?php echo $form->labelEx($model, 'typeid'); ?>
-        <?php echo $form->dropDownList($model, 'typeid', CHtml::listData(PlaceType::model()->findAll(), 'id', 'title')); ?>
+        <?php echo $form->dropDownList($model, 'typeid', Place::$typeLabels); ?>
         <?php echo $form->error($model, 'typeid'); ?>
     </div>
 

@@ -1,27 +1,25 @@
 <?php
 
 /**
- * This is the model class for table "tbl_places".
+ * This is the model class for table "tbl_service_cats".
  *
- * The followings are the available columns in table 'tbl_places':
+ * The followings are the available columns in table 'tbl_service_cats':
  * @property integer $id
+ * @property integer $placeid
+ * @property integer $pid
  * @property string $title
- * @property integer $typeid
- * @property float $location_lat
- * @property float $location_lng
- * @property string $address
  *
  * The followings are the available model relations:
- * @property PlaceType $type
+ * @property Place $place
  */
-class Place extends CActiveRecord
+class ServiceCat extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'tbl_places';
+		return 'tbl_service_cats';
 	}
 
 	/**
@@ -32,13 +30,11 @@ class Place extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, address', 'required'),
-			array('typeid', 'numerical', 'integerOnly'=>true),
-			array('location_lat, location_lng', 'numerical'),
+			array('placeid, pid', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, title, typeid, location_lat, location_lng', 'safe', 'on'=>'search'),
+			array('id, placeid, pid, title', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -50,7 +46,7 @@ class Place extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'type' => array(self::HAS_ONE, 'PlaceType', 'id'),
+			'place' => array(self::HAS_ONE, 'Place', 'id'),
 		);
 	}
 
@@ -61,10 +57,9 @@ class Place extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
+			'placeid' => 'Placeid',
+			'pid' => 'Pid',
 			'title' => 'Title',
-			'typeid' => 'Typeid',
-			'location_lat' => 'Location Lat',
-			'location_lng' => 'Location Lng',
 		);
 	}
 
@@ -87,11 +82,9 @@ class Place extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
+		$criteria->compare('placeid',$this->placeid);
+		$criteria->compare('pid',$this->pid);
 		$criteria->compare('title',$this->title,true);
-		$criteria->compare('typeid',$this->typeid);
-		$criteria->compare('location_lat',$this->location_lat);
-		$criteria->compare('location_lng',$this->location_lng);
-		$criteria->compare('address',$this->address);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -102,7 +95,7 @@ class Place extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Place the static model class
+	 * @return ServiceCat the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

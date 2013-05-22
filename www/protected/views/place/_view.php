@@ -13,8 +13,8 @@
 	<?php echo CHtml::encode($data->title); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('typeid')); ?>:</b>
-	<?php echo CHtml::encode($data->typeid); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('type')); ?>:</b>
+	<?php echo CHtml::encode($data->type->title); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('location_lat')); ?>:</b>

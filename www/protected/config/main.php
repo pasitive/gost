@@ -7,7 +7,7 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'My Web Application',
+	'name'=>'GOST',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -34,10 +34,8 @@ return array(
 			'allowAutoLogin'=>true,
 		),
 		// uncomment the following to enable URLs in path-format
-
 		'urlManager'=>array(
 			'urlFormat'=>'path',
-            'showScriptName' => false,
 			'rules'=>array(
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
@@ -46,7 +44,7 @@ return array(
 		),
 
 		'db'=>array(
-			'connectionString' => 'mysql:host=127.0.0.1;dbname=gost',
+			'connectionString' => 'mysql:host=localhost;dbname=gost',
 			'emulatePrepare' => true,
 			'username' => 'root',
 			'password' => '',

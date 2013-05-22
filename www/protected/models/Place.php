@@ -49,7 +49,7 @@ class Place extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'type' => array(self::HAS_ONE, 'PlaceType', 'fk_place_placetype_id'),
+			'type' => array(self::HAS_ONE, 'PlaceType', 'id'),
 		);
 	}
 

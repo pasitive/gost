@@ -36,6 +36,7 @@
 				array('label'=>'Места', 'url'=>array('/place/index/')),
                 array('label'=>'Категории услуг', 'url'=>array('/serviceCat/index/')),
                 array('label'=>'Услуги', 'url'=>array('/service/index/')),
+                array('label'=>'Заказы', 'url'=>array('/order/index/')),
                 array('label'=>'Вход', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Выход ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),

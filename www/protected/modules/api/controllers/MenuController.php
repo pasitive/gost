@@ -7,31 +7,42 @@
 
 class MenuController extends Controller
 {
+    /**
+     * @param $hotelId
+     * @return array
+     */
     public function actionIndex($hotelId)
     {
-        //@todo Структура как в экспертной системе Operpom
+        /**
+         * @todo Необходимо возвращать иерархическую структуру Меню с Элементами меню
+         * На входе метод принимает id Места (Place)
+         * На выходе должен выдать Меню для этого Места
+         */
 
-        /*array(
-            'name' => 'qwe',
-            'items' => array(
+        return array(
+            'id' => 'Category id',
+            'name' => 'Category name',
+            'items' => array( // Массив элементов меню
                 'item1' => array(
-                    'price'
+                    'id' => '',
+                    'title' => '',
+                    'desc' => '',
+                    'img' => '',
                 ),
             ),
-            'categories' => array(
-                'name' => 'qwe1.1',
-                'items' => array(
+            'categories' => array( // Массив вложенных категорий меню
+                'id' => 'Category id',
+                'name' => 'Category name',
+                'items' => array( // Массив элементов меню
                     'item1' => array(
-                        'name',
-                        'image',
+                        'id' => '',
+                        'title' => '',
+                        'desc' => '',
+                        'img' => '',
                     ),
                 ),
-                'categories' => array(
-
-                ),
             ),
-        );*/
-
+        );
     }
 
 

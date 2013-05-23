@@ -28,10 +28,29 @@ class Place extends CActiveRecord
     public static function getTypeLabel($typeId)
     {
         assert(in_array($typeId, array_keys(self::$typeLabels)));
-        
-        if($typeId) {
+
+        if ($typeId) {
             return isset(self::$typeLabels[$typeId]) ? self::$typeLabels[$typeId] : null;
         }
+    }
+
+    public function hotels()
+    {
+        return $this->typeScope(Place::TYPE_HOTEL);
+    }
+
+    public function seller()
+    {
+        return $this->typeScope(Place::TYPE_SELLER);
+    }
+
+    protected function typeScope($typeid)
+    {
+        $criteria = $this->getDbCriteria();
+        $criteria->addColumnCondition(array(
+            'typeid' => $typeid
+        ));
+        return $this;
     }
 
     /**

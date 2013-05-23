@@ -17,10 +17,7 @@ class ErrorController extends Controller
     {
         if ($error = Yii::app()->errorHandler->error) {
 
-            $response = new Response();
-            $response->status = 1;
-            $response->error = 'Unknown error';
-            $response->result = array();
+            $response = new Response(array(), $error['code'], $error['message']);
             print $response;
         }
     }

@@ -18,6 +18,18 @@ class Response extends CModel
     public $result = array();
 
     /**
+     * @param $result
+     * @param int $status
+     * @param string $error
+     */
+    function __construct($result, $status = 0, $error = '')
+    {
+        $this->result = $result;
+        $this->status = $status;
+        $this->error = $error;
+    }
+
+    /**
      * Returns the list of attribute names of the model.
      * @return array list of attribute names.
      */

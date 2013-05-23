@@ -93,9 +93,9 @@ class OrderController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['order']))
+		if(isset($_POST['Order']))
 		{
-			$model->attributes=$_POST['order'];
+			$model->attributes=$_POST['Order'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -129,7 +129,7 @@ class OrderController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('order');
+		$dataProvider=new CActiveDataProvider('Order');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -140,10 +140,10 @@ class OrderController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new order('search');
+		$model=new Order('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['order']))
-			$model->attributes=$_GET['order'];
+		if(isset($_GET['Order']))
+			$model->attributes=$_GET['Order'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -159,7 +159,7 @@ class OrderController extends Controller
 		if($this->_model===null)
 		{
 			if(isset($_GET['id']))
-				$this->_model=order::model()->findbyPk($_GET['id']);
+				$this->_model=Order::model()->findbyPk($_GET['id']);
 			if($this->_model===null)
 				throw new CHttpException(404,'The requested page does not exist.');
 		}

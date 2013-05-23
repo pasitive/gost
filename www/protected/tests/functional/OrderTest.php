@@ -1,6 +1,6 @@
 <?php
 
-class orderTest extends WebTestCase
+class orderTest extends GostWebTestCase
 {
 	public $fixtures=array(
 		'orders'=>'order',

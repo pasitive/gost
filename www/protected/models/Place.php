@@ -34,16 +34,26 @@ class Place extends CActiveRecord
         }
     }
 
+    /**
+     * @return $this
+     */
     public function hotels()
     {
         return $this->typeScope(Place::TYPE_HOTEL);
     }
 
+    /**
+     * @return $this
+     */
     public function seller()
     {
         return $this->typeScope(Place::TYPE_SELLER);
     }
 
+    /**
+     * @param $typeid
+     * @return $this
+     */
     protected function typeScope($typeid)
     {
         $criteria = $this->getDbCriteria();

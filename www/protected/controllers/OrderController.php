@@ -1,6 +1,6 @@
 <?php
 
-class ServoceCatController extends Controller
+class OrderController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -9,13 +9,17 @@ class ServoceCatController extends Controller
 	public $layout='//layouts/column2';
 
 	/**
+	 * @var CActiveRecord the currently loaded data model instance.
+	 */
+	private $_model;
+
+	/**
 	 * @return array action filters
 	 */
 	public function filters()
 	{
 		return array(
 			'accessControl', // perform access control for CRUD operations
-			'postOnly + delete', // we only allow deletion via POST request
 		);
 	}
 
@@ -47,12 +51,11 @@ class ServoceCatController extends Controller
 
 	/**
 	 * Displays a particular model.
-	 * @param integer $id the ID of the model to be displayed
 	 */
-	public function actionView($id)
+	public function actionView()
 	{
 		$this->render('view',array(
-			'model'=>$this->loadModel($id),
+			'model'=>$this->loadModel(),
 		));
 	}
 
@@ -62,14 +65,14 @@ class ServoceCatController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new ServiceCat;
+		$model=new Order;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['ServiceCat']))
+		if(isset($_POST['Order']))
 		{
-			$model->attributes=$_POST['ServiceCat'];
+			$model->attributes=$_POST['Order'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -82,18 +85,17 @@ class ServoceCatController extends Controller
 	/**
 	 * Updates a particular model.
 	 * If update is successful, the browser will be redirected to the 'view' page.
-	 * @param integer $id the ID of the model to be updated
 	 */
-	public function actionUpdate($id)
+	public function actionUpdate()
 	{
-		$model=$this->loadModel($id);
+		$model=$this->loadModel();
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['ServiceCat']))
+		if(isset($_POST['order']))
 		{
-			$model->attributes=$_POST['ServiceCat'];
+			$model->attributes=$_POST['order'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -105,16 +107,21 @@ class ServoceCatController extends Controller
 
 	/**
 	 * Deletes a particular model.
-	 * If deletion is successful, the browser will be redirected to the 'admin' page.
-	 * @param integer $id the ID of the model to be deleted
+	 * If deletion is successful, the browser will be redirected to the 'index' page.
 	 */
-	public function actionDelete($id)
+	public function actionDelete()
 	{
-		$this->loadModel($id)->delete();
+		if(Yii::app()->request->isPostRequest)
+		{
+			// we only allow deletion via POST request
+			$this->loadModel()->delete();
 
-		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+			if(!isset($_GET['ajax']))
+				$this->redirect(array('index'));
+		}
+		else
+			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
 	}
 
 	/**
@@ -122,7 +129,7 @@ class ServoceCatController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('ServiceCat');
+		$dataProvider=new CActiveDataProvider('order');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -133,10 +140,10 @@ class ServoceCatController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new ServiceCat('search');
+		$model=new order('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['ServiceCat']))
-			$model->attributes=$_GET['ServiceCat'];
+		if(isset($_GET['order']))
+			$model->attributes=$_GET['order'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -146,25 +153,26 @@ class ServoceCatController extends Controller
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
-	 * @param integer $id the ID of the model to be loaded
-	 * @return ServiceCat the loaded model
-	 * @throws CHttpException
 	 */
-	public function loadModel($id)
+	public function loadModel()
 	{
-		$model=ServiceCat::model()->findByPk($id);
-		if($model===null)
-			throw new CHttpException(404,'The requested page does not exist.');
-		return $model;
+		if($this->_model===null)
+		{
+			if(isset($_GET['id']))
+				$this->_model=order::model()->findbyPk($_GET['id']);
+			if($this->_model===null)
+				throw new CHttpException(404,'The requested page does not exist.');
+		}
+		return $this->_model;
 	}
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param ServiceCat $model the model to be validated
+	 * @param CModel the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='service-cat-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='order-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

@@ -20,7 +20,7 @@ class MenuController extends Controller
          */
 
         $place = Place::model()->findByPk($hotelId);
-        if ( empty($place) )
+        if (empty($place))
             throw new CHttpException(404, 'Неверный ID места');
 
         $cats = $this->_getCatsChildren($place->id, 0);
@@ -54,22 +54,25 @@ class MenuController extends Controller
         );*/
     }
 
-    private function _getCatsChildren($placeid, $pid) {
-        $cats =  MenuCat::model()->findAll('placeid=:id AND pid=:pid', array(':id'=>$placeid, ':pid'=>$pid));
+    private function _getCatsChildren($placeid, $pid)
+    {
+        $cats = MenuCat::model()->findAll('placeid=:id AND pid=:pid', array(':id' => $placeid, ':pid' => $pid));
         $ret = array();
-        foreach ( $cats as $element ) {
-            $new = &$ret[];
+        foreach ($cats as $element) {
+            $new = & $ret[];
             $new['id'] = $element->id;
             $new['name'] = $element->title;
-            $new['items'] =  MenuItem::model()->findAllByAttributes(array(
+            $new['items'] = MenuItem::model()->findAllByAttributes(array(
                 'catid' => $element->id,
             ));
         }
 
-        foreach ( $ret as &$element ) {
+        foreach ($ret as &$element) {
             $subcats = $this->_getCatsChildren($placeid, $element['id']);
-            if ( !empty($subcats) ) {
+            if (!empty($subcats)) {
                 $element['categories'] = $subcats;
+            } else {
+                $element['categories'] = array();
             }
         }
         return $ret;

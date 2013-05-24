@@ -32,7 +32,7 @@
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
-                array('label'=>'Тип места', 'url'=>array('/placeType/index/')),
+//                array('label'=>'Тип места', 'url'=>array('/placeType/index/')),
 				array('label'=>'Места', 'url'=>array('/place/index/')),
                 array('label'=>'Категории услуг', 'url'=>array('/serviceCat/index/')),
                 array('label'=>'Услуги', 'url'=>array('/service/index/')),

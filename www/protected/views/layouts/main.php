@@ -39,8 +39,10 @@
                 array('label'=>Yii::t('app', 'Menu categories'), 'url'=>array('/menuCat/index/')),
                 array('label'=>Yii::t('app', 'Menu items'), 'url'=>array('/menuItem/index/')),
                 array('label'=>Yii::t('app', 'Orders'), 'url'=>array('/order/index/')),
+                array('label'=>Yii::t('app', 'Tour categories'), 'url'=>array('/tourCat/index/')),
                 array('label'=>Yii::t('app', 'Login'), 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>Yii::t('app', 'Logout') . ' ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+				array('label'=>Yii::t('app', 'Logout') . ' ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Выход ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
 			),
 		)); ?>
 	</div><!-- mainmenu -->

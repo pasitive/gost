@@ -25,11 +25,10 @@ class MenuController extends Controller
 
         $cats = $this->_getCatsChildren($place->id, 0);
 
-
         $response = new Response($cats);
         print $response;
 
-        return array(
+        /*return array(
             'id' => 'Category id',
             'name' => 'Category name',
             'items' => array( // Массив элементов меню
@@ -52,10 +51,10 @@ class MenuController extends Controller
                     ),
                 ),
             ),
-        );
+        );*/
     }
 
-    private function getCatsChildren($placeid, $pid) {
+    private function _getCatsChildren($placeid, $pid) {
         $cats =  MenuCat::model()->findAll('placeid=:id AND pid=:pid', array(':id'=>$placeid, ':pid'=>$pid));
         $ret = array();
         foreach ( $cats as $element ) {
@@ -66,7 +65,7 @@ class MenuController extends Controller
         }
 
         foreach ( $ret as &$element ) {
-            $subcats = $this->getCatsChildren($placeid, $element['id']);
+            $subcats = $this->_getCatsChildren($placeid, $element['id']);
             if ( !empty($subcats) ) {
                 $element['categories'] = $subcats;
             }

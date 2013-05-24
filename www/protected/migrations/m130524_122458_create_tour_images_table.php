@@ -8,7 +8,6 @@ class m130524_122458_create_tour_images_table extends CDbMigration
             'id' => 'pk',
             'tourid' => 'integer',
             'img' => 'string',
-            'desc' => 'text',
         ));
         $this->addForeignKey('fk_tourimage_tourid', 'tbl_tour_images', 'tourid', 'tbl_tours', 'id');
     }

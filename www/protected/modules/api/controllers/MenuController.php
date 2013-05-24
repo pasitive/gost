@@ -25,7 +25,7 @@ class MenuController extends Controller
 
         $cats = $this->getCatsChildren($place->id, 0);
 
-        var_dump($cats);
+//        var_dump($cats);
         return $cats;
 
         return array(
@@ -55,22 +55,40 @@ class MenuController extends Controller
     }
 
     private function getCatsChildren($placeid, $pid) {
+
         $cats =  MenuCat::model()->findAll('placeid=:id AND pid=:pid', array(':id'=>$placeid, ':pid'=>$pid));
+
         $ret = array();
-        foreach ( $cats as $element ) {
+        foreach ( $cats as $cat ) {
+
             $new = &$ret[];
-            $new['id'] = $element->id;
-            $new['name'] = $element->title;
-            $new['items'] = array();
+            $new['id'] = $cat->id;
+            $new['name'] = $cat->title;
+
+            $items = MenuItem::model()->findAll('catid=:catid', array(':catid'=>$cat->id));
+            if ( !empty($items) ) {
+                $tmp = array();
+                foreach ( $items as $item ) {
+                    $ins = &$tmp['item' . $item->id][];
+                    $ins['id'] = $item->id;
+                    $ins['title'] = $item->title;
+                    $ins['desc'] = $item->desc;
+                    $ins['img'] = $item->img;
+                }
+                $new['items'] = $tmp;
+            }
+
         }
 
-        foreach ( $ret as &$element ) {
-            $subcats = $this->getCatsChildren($placeid, $element['id']);
+        foreach ( $ret as &$cat ) {
+            $subcats = $this->getCatsChildren($placeid, $cat['id']);
             if ( !empty($subcats) ) {
-                $element['categories'] = $subcats;
+                $cat['categories'] = $subcats;
             }
         }
+
         return $ret;
+
     }
 
 }

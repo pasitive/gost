@@ -14,6 +14,9 @@
  */
 class MenuCat extends CActiveRecord
 {
+
+    public $level;
+
 	/**
 	 * @return string the associated database table name
 	 */

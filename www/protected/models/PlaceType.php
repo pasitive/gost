@@ -50,8 +50,8 @@ class PlaceType extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'title' => 'Title',
+			'id' => Yii::t('PlaceType', 'ID'),
+			'title' => Yii::t('PlaceType', 'Title'),
 		);
 	}
 

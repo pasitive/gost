@@ -119,12 +119,12 @@ class Place extends CActiveRecord
     public function attributeLabels()
     {
         return array(
-            'id' => 'ID',
-            'title' => 'Title',
-            'typeid' => 'Typeid',
-            'location_lat' => 'Location Lat',
-            'location_lng' => 'Location Lng',
-            'images' => 'Images'
+            'id' => Yii::t('Place', 'ID'),
+            'title' => Yii::t('Place', 'Title'),
+            'typeid' => Yii::t('Place', 'Type ID'),
+            'location_lat' => Yii::t('Place', 'Latitude'),
+            'location_lng' => Yii::t('Place', 'Longitude'),
+            'images' => Yii::t('Place', 'Images')
         );
     }
 

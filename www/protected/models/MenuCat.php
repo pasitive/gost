@@ -104,4 +104,7 @@ class MenuCat extends CActiveRecord
     {
         return parent::model($className);
     }
+
+
+
 }

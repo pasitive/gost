@@ -147,4 +147,44 @@ class MenuItem extends CActiveRecord
     {
         return parent::model($className);
     }
+
+    public static function getCatsChildren($placeid, $pid)
+    {
+        $cats = MenuCat::model()->findAll('placeid=:id AND pid=:pid', array(':id' => $placeid, ':pid' => $pid));
+        $ret = array();
+        foreach ($cats as $element) {
+            $new = & $ret[];
+            $new['id'] = $element->id;
+            $new['name'] = $element->title;
+
+            $buf = MenuItem::model()->findAllByAttributes(array(
+                'catid' => $element->id,
+            ));
+
+            $menuItems = array();
+            /* @var $menuItem MenuItem */
+            foreach($buf as $menuItem) {
+                $menuItems[] = array(
+                    'id' => $menuItem->id,
+                    'point_id' => $placeid,
+                    'category' => $menuItem->catid,
+                    'name' => $menuItem->title,
+                    'image' => Yii::app()->request->getBaseUrl(true) . $menuItem->getImg(450),
+                );
+            }
+
+
+            $new['items'] = $menuItems;
+        }
+
+        foreach ($ret as &$element) {
+            $subcats = self::getCatsChildren($placeid, $element['id']);
+            if (!empty($subcats)) {
+                $element['categories'] = $subcats;
+            } else {
+                $element['categories'] = array();
+            }
+        }
+        return $ret;
+    }
 }

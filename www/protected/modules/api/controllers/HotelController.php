@@ -8,7 +8,6 @@ class HotelController extends Controller
      */
     public function actionIndex($lt, $lg)
     {
-
         $model = Place::model()->hotels()->findAll();
 
         $result = array();
@@ -25,6 +24,13 @@ class HotelController extends Controller
                 'images' => CJSON::decode($hotel->images),
                 'avg_rating' => 0.0,
             );
+
+            $menus = MenuItem::getCatsChildren($hotel->id, 0);
+            $item['menus'] = $menus;
+
+            $services = Service::getCatsChildren($hotel->id, 0);
+            $item['services'] = $services;
+
             $result[] = $item;
         }
 

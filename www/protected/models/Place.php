@@ -58,6 +58,26 @@ class Place extends CActiveRecord
     }
 
     /**
+     * @param $lat
+     * @param $lon
+     * @return $this
+     */
+    public function byLatLng($lat, $lon)
+    {
+        $kRad = 3.14 / 180; // коэффициент для перевода
+        $lat = $lat * $kRad; // перевод широты моей координаты
+        $lon = $lon * $kRad; // перевод долготы моей координаты
+
+        $criteria = $this->getDbCriteria();
+        $criteria->select = array(
+            '*',
+            '6367444.6571225 * 2 * ASIN( SQRT( POWER( SIN( (location_lat*' . $kRad . '-' . $lat . ') / 2),2 ) + COS(' . $lon . '*' . $kRad . ')* COS(' . $lat . ') * POWER( SIN( (' . $lon . '*' . $kRad . '-' . $lon . ') / 2),2 ) ) ) as distance',
+        );
+        $criteria->order = 'distance ASC';
+        return $this;
+    }
+
+    /**
      * @param $typeid
      * @return $this
      */

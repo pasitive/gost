@@ -61,7 +61,9 @@ class MenuController extends Controller
             $new = &$ret[];
             $new['id'] = $element->id;
             $new['name'] = $element->title;
-            $new['items'] = array();
+            $new['items'] =  MenuItem::model()->findAllByAttributes(array(
+                'catid' => $element->id,
+            ));
         }
 
         foreach ( $ret as &$element ) {

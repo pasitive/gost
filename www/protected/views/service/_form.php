@@ -28,7 +28,7 @@
 
     <div class="row">
         <?php echo $form->labelEx($model, 'catid'); ?>
-        <?php echo $form->textField($model, 'catid'); ?>
+        <?php echo $form->dropDownList( $model, 'catid', CHtml::listData(ServiceCat::model()->findAll(), 'id', 'title'), array('empty' => array(0 => '---')) ); ?>
         <?php echo $form->error($model, 'catid'); ?>
     </div>
 

@@ -55,28 +55,22 @@ class MenuController extends Controller
         );
     }
 
-    private function _getCatsChildren($placeid, $pid) {
+    private function getCatsChildren($placeid, $pid) {
         $cats =  MenuCat::model()->findAll('placeid=:id AND pid=:pid', array(':id'=>$placeid, ':pid'=>$pid));
         $ret = array();
         foreach ( $cats as $element ) {
             $new = &$ret[];
             $new['id'] = $element->id;
             $new['name'] = $element->title;
-            // НЕПРОСТИТЕЛЬНАЯ ВЕСЧЧЬ!!!! Но для скорости разработки пойдет пока :)
-            $new['items'] = MenuItem::model()->findAllByAttributes(array(
-                'catid' => $element->id,
-            ));
+            $new['items'] = array();
         }
 
         foreach ( $ret as &$element ) {
-            $subcats = $this->_getCatsChildren($placeid, $element['id']);
+            $subcats = $this->getCatsChildren($placeid, $element['id']);
             if ( !empty($subcats) ) {
                 $element['categories'] = $subcats;
-            } else {
-                $element['categories'] = array();
             }
         }
-
         return $ret;
     }
 

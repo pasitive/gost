@@ -98,6 +98,7 @@ class Place extends CActiveRecord
         // class name for the relations automatically generated below.
         return array(
             'type' => array(self::HAS_ONE, 'PlaceType', 'id'),
+//            'serviceCat' => array(self::BELONGS_TO, 'ServiceCat', 'placeid'),
         );
     }
 

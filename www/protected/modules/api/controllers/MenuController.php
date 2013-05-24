@@ -8,10 +8,10 @@
 class MenuController extends Controller
 {
     /**
-     * @param $hotelId
+     * @param $point_id
      * @return array
      */
-    public function actionIndex($hotelId)
+    public function actionIndex($point_id)
     {
         /**
          * @todo Необходимо возвращать иерархическую структуру Меню с Элементами меню
@@ -19,16 +19,16 @@ class MenuController extends Controller
          * На выходе должен выдать Меню для этого Места
          */
 
-        $place = Place::model()->findByPk($hotelId);
-        if ( empty($place) )
+        $place = Place::model()->findByPk($point_id);
+        if (empty($place))
             throw new CHttpException(404, 'Неверный ID места');
 
-        $cats = $this->getCatsChildren($place->id, 0);
+        $cats = $this->_getCatsChildren($place->id, 0);
 
-//        var_dump($cats);
-        return $cats;
+        $response = new Response($cats);
+        print $response;
 
-        return array(
+        /*return array(
             'id' => 'Category id',
             'name' => 'Category name',
             'items' => array( // Массив элементов меню
@@ -51,44 +51,47 @@ class MenuController extends Controller
                     ),
                 ),
             ),
-        );
+        );*/
     }
 
-    private function getCatsChildren($placeid, $pid) {
-
-        $cats =  MenuCat::model()->findAll('placeid=:id AND pid=:pid', array(':id'=>$placeid, ':pid'=>$pid));
-
+    private function _getCatsChildren($placeid, $pid)
+    {
+        $cats = MenuCat::model()->findAll('placeid=:id AND pid=:pid', array(':id' => $placeid, ':pid' => $pid));
         $ret = array();
-        foreach ( $cats as $cat ) {
+        foreach ($cats as $element) {
+            $new = & $ret[];
+            $new['id'] = $element->id;
+            $new['name'] = $element->title;
 
-            $new = &$ret[];
-            $new['id'] = $cat->id;
-            $new['name'] = $cat->title;
+            $buf = MenuItem::model()->findAllByAttributes(array(
+                'catid' => $element->id,
+            ));
 
-            $items = MenuItem::model()->findAll('catid=:catid', array(':catid'=>$cat->id));
-            if ( !empty($items) ) {
-                $tmp = array();
-                foreach ( $items as $item ) {
-                    $ins = &$tmp['item' . $item->id][];
-                    $ins['id'] = $item->id;
-                    $ins['title'] = $item->title;
-                    $ins['desc'] = $item->desc;
-                    $ins['img'] = $item->img;
-                }
-                $new['items'] = $tmp;
+            $menuItems = array();
+            /* @var $menuItem MenuItem */
+            foreach($buf as $menuItem) {
+                $menuItems[] = array(
+                    'id' => $menuItem->id,
+                    'point_id' => $placeid,
+                    'category' => $menuItem->catid,
+                    'name' => $menuItem->title,
+                    'image' => Yii::app()->request->getBaseUrl(true) . $menuItem->getImg(450),
+                );
             }
 
+
+            $new['items'] = $menuItems;
         }
 
-        foreach ( $ret as &$cat ) {
-            $subcats = $this->getCatsChildren($placeid, $cat['id']);
-            if ( !empty($subcats) ) {
-                $cat['categories'] = $subcats;
+        foreach ($ret as &$element) {
+            $subcats = $this->_getCatsChildren($placeid, $element['id']);
+            if (!empty($subcats)) {
+                $element['categories'] = $subcats;
+            } else {
+                $element['categories'] = array();
             }
         }
-
         return $ret;
-
     }
 
 }

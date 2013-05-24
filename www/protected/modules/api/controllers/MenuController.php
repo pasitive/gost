@@ -19,6 +19,15 @@ class MenuController extends Controller
          * На выходе должен выдать Меню для этого Места
          */
 
+        $place = Place::model()->findByPk($hotelId);
+        if ( empty($place) )
+            throw new CHttpException(404, 'Неверный ID места');
+
+        $cats = $this->getCatsChildren($place->id, 0);
+
+        var_dump($cats);
+        return $cats;
+
         return array(
             'id' => 'Category id',
             'name' => 'Category name',
@@ -45,5 +54,23 @@ class MenuController extends Controller
         );
     }
 
+    private function getCatsChildren($placeid, $pid) {
+        $cats =  MenuCat::model()->findAll('placeid=:id AND pid=:pid', array(':id'=>$placeid, ':pid'=>$pid));
+        $ret = array();
+        foreach ( $cats as $element ) {
+            $new = &$ret[];
+            $new['id'] = $element->id;
+            $new['name'] = $element->title;
+            $new['items'] = array();
+        }
+
+        foreach ( $ret as &$element ) {
+            $subcats = $this->getCatsChildren($placeid, $element['id']);
+            if ( !empty($subcats) ) {
+                $element['categories'] = $subcats;
+            }
+        }
+        return $ret;
+    }
 
 }

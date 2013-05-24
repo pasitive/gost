@@ -21,6 +21,12 @@
     <?php echo $form->errorSummary($model); ?>
 
     <div class="row">
+        <?php echo $form->labelEx(Place::model(), 'title'); ?>
+        <?php echo $form->dropDownList( Place::model(),'id', CHtml::listData(Place::model()->findAll(), 'id', 'title'), array('empty' => array(0 => '---')) ); ?>
+        <?php echo $form->error($model,'catid'); ?>
+    </div>
+
+    <div class="row">
         <?php echo $form->labelEx($model, 'catid'); ?>
         <?php echo $form->textField($model, 'catid'); ?>
         <?php echo $form->error($model, 'catid'); ?>

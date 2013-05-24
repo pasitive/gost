@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "tbl_menu_cats".
+ * This is the model class for table "tbl_tour_cats".
  *
- * The followings are the available columns in table 'tbl_menu_cats':
+ * The followings are the available columns in table 'tbl_tour_cats':
  * @property integer $id
  * @property integer $placeid
  * @property integer $pid
@@ -12,14 +12,14 @@
  * The followings are the available model relations:
  * @property Place $place
  */
-class MenuCat extends CActiveRecord
+class TourCat extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'tbl_menu_cats';
+		return 'tbl_tour_cats';
 	}
 
 	/**
@@ -38,17 +38,17 @@ class MenuCat extends CActiveRecord
 		);
 	}
 
-    /**
-     * @return array relational rules.
-     */
-    public function relations()
-    {
-        // NOTE: you may need to adjust the relation name and the related
-        // class name for the relations automatically generated below.
+	/**
+	 * @return array relational rules.
+	 */
+	public function relations()
+	{
+		// NOTE: you may need to adjust the relation name and the related
+		// class name for the relations automatically generated below.
         return array(
             'place' => array(self::HAS_ONE, 'Place', 'id'),
         );
-    }
+	}
 
 	/**
 	 * @return array customized attribute labels (name=>label)
@@ -95,7 +95,7 @@ class MenuCat extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return MenuCat the static model class
+	 * @return TourCat the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

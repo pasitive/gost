@@ -38,6 +38,7 @@
                 array('label'=>'Услуги', 'url'=>array('/service/index/')),
                 array('label'=>'Категории меню', 'url'=>array('/menuCat/index/')),
                 array('label'=>'Элементы меню', 'url'=>array('/menuItem/index/')),
+                array('label'=>'Категории экскурсий', 'url'=>array('/tourCat/index/')),
                 array('label'=>'Заказы', 'url'=>array('/order/index/')),
                 array('label'=>'Вход', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Выход ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)

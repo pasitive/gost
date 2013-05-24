@@ -62,7 +62,7 @@ class MenuCat extends CActiveRecord
             'id' => Yii::t('MenuCat', 'ID'),
             'placeid' => Yii::t('MenuCat', 'Place ID'),
             'pid' => Yii::t('MenuCat', 'Parent ID'),
-            'title' => Yii::t('MenuCat', 'title'),
+            'title' => Yii::t('MenuCat', 'Title'),
         );
     }
 

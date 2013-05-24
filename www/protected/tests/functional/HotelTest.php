@@ -5,7 +5,7 @@
  * Time: 1:28 PM
  */
 
-class HotelControllerTest extends GostWebTestCase
+class HotelTest extends GostWebTestCase
 {
     public function testResponse()
     {

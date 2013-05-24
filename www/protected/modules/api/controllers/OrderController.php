@@ -9,7 +9,21 @@ class OrderController extends Controller
 {
     public function actionIndex($hotelId, $room, $phone)
     {
-        //заказ услуги
-        //@todo implement
+        $order = new Order();
+        $order->attributes = array(
+            'room_number' => $room,
+            'placeid' => $hotelId,
+            'phone' => $phone,
+        );
+
+        $response = null;
+
+        if (!$order->save()) {
+            $response = new Response(array(), 1, 'Unable to save Order model (' . join(',', $order->getErrors()) . ')');
+        } else {
+            $response = new Response(array('ok'));
+        }
+
+        print $response;
     }
 }

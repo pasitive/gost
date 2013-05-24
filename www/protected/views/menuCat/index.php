@@ -3,16 +3,16 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Menu Cats',
+	Yii::t('MenuCat', 'Menu categories'),
 );
 
 $this->menu=array(
-	array('label'=>'Create MenuCat', 'url'=>array('create')),
-	array('label'=>'Manage MenuCat', 'url'=>array('admin')),
+	array('label'=>Yii::t('MenuCat', 'Create menu category'), 'url'=>array('create')),
+	array('label'=>Yii::t('MenuCat', 'Manage menu categories'), 'url'=>array('admin')),
 );
 ?>
 
-<h1>Menu Cats</h1>
+<h1><?php print Yii::t('MenuCat', 'Menu categories') ?></h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

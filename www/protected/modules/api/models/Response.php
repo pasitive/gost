@@ -44,10 +44,18 @@ class Response extends CModel
 
     function __toString()
     {
-        return CJSON::encode(array(
-            'status' => $this->status,
-            'error' => $this->error,
-            'result' => $this->result,
-        ));
+        if (YII_DEBUG) {
+            return print_r(array(
+                'status' => $this->status,
+                'error' => $this->error,
+                'result' => $this->result,
+            ), true);
+        } else {
+            return CJSON::encode(array(
+                'status' => $this->status,
+                'error' => $this->error,
+                'result' => $this->result,
+            ));
+        }
     }
 }

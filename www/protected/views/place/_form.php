@@ -13,6 +13,7 @@
         // There is a call to performAjaxValidation() commented in generated controller code.
         // See class documentation of CActiveForm for details on this.
         'enableAjaxValidation' => false,
+        'htmlOptions' => array('enctype' => 'multipart/form-data'),
     )); ?>
 
     <p class="note">Fields with <span class="required">*</span> are required.</p>
@@ -29,6 +30,16 @@
         <?php echo $form->labelEx($model, 'typeid'); ?>
         <?php echo $form->dropDownList($model, 'typeid', Place::$typeLabels); ?>
         <?php echo $form->error($model, 'typeid'); ?>
+    </div>
+
+    <div class="row">
+        <?php echo $form->labelEx($model, 'images'); ?>
+        <?php $this->widget('CMultiFileUpload', array(
+            'model' => $model,
+            'attribute' => 'images',
+            'accept' => 'jpg|gif|png',
+        )); ?>
+        <?php echo $form->error($model, 'images'); ?>
     </div>
 
     <div class="row">

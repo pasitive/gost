@@ -10,6 +10,8 @@
  * @property float $location_lat
  * @property float $location_lng
  * @property string $address
+ * @property string $images
+ *
  *
  * The followings are the available model relations:
  * @property PlaceType $type
@@ -24,6 +26,14 @@ class Place extends CActiveRecord
         self::TYPE_HOTEL => 'Гостиница',
         self::TYPE_SELLER => 'Продавец',
     );
+
+    public function getImageByName($name, $onlyFileName = false, $stripHashName = false)
+    {
+        return $this->getResourcePath($name, 0, array(
+            'onlyFileName' => $onlyFileName,
+            'stripHashName' => $stripHashName,
+        ));
+    }
 
     public static function getTypeLabel($typeId)
     {
@@ -83,6 +93,7 @@ class Place extends CActiveRecord
             array('typeid', 'numerical', 'integerOnly' => true),
             array('location_lat, location_lng', 'numerical'),
             array('title', 'length', 'max' => 255),
+            array('images', 'safe'),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
             array('id, title, typeid, location_lat, location_lng', 'safe', 'on' => 'search'),
@@ -113,7 +124,44 @@ class Place extends CActiveRecord
             'typeid' => 'Typeid',
             'location_lat' => 'Location Lat',
             'location_lng' => 'Location Lng',
+            'images' => 'Images'
         );
+    }
+
+    public function behaviors()
+    {
+        return array(
+            'ResourcesBehavior' => array(
+                'class' => 'ext.resourcesBehavior.ResourcesBehavior',
+                'resourcePath' => Yii::app()->params['uploadsDir'],
+            ),
+        );
+    }
+
+    public function afterSave()
+    {
+        $hashString = $this->generatePathHash();
+
+        $files = CUploadedFile::getInstances($this, 'images');
+
+        if (!empty($files)) {
+            $texture = array();
+            foreach ($files as $file) {
+                if ($file !== null) {
+                    $meta = $this->processImage($this, $file, false, $hashString);
+                    $texture[] = Yii::app()->request->getBaseUrl(true) . $this->getImageByName($meta['fileName']);
+                }
+            }
+            $this->updateByPk($this->id, array(
+                'images' => CJSON::encode($texture),
+            ));
+            $this->setAttributes(array(
+                'images' => CJSON::encode($texture),
+            ));
+
+        }
+
+        return parent::afterSave();
     }
 
     /**

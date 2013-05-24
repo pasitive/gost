@@ -22,7 +22,7 @@ class HotelController extends Controller
                 'lt' => $hotel->location_lat,
                 'lg' => $hotel->location_lng,
                 'type' => $hotel->typeid,
-                'images' => array(),
+                'images' => CJSON::decode($hotel->images),
                 'avg_rating' => 0.0,
             );
             $result[] = $item;

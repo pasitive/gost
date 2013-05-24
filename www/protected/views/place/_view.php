@@ -14,7 +14,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('type')); ?>:</b>
-	<?php echo CHtml::encode($data->type->title); ?>
+	<?php echo CHtml::encode($data->typeid); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('location_lat')); ?>:</b>
@@ -24,6 +24,5 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('location_lng')); ?>:</b>
 	<?php echo CHtml::encode($data->location_lng); ?>
 	<br />
-
 
 </div>

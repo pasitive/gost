@@ -38,10 +38,7 @@ class Place extends CActiveRecord
     public static function getTypeLabel($typeId)
     {
         assert(in_array($typeId, array_keys(self::$typeLabels)));
-
-        if ($typeId) {
-            return isset(self::$typeLabels[$typeId]) ? self::$typeLabels[$typeId] : null;
-        }
+        return self::$typeLabels[$typeId];
     }
 
     /**

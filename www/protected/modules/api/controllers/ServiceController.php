@@ -9,7 +9,15 @@ class ServiceController extends Controller
 {
     public function actionIndex($hotelId)
     {
-        //@todo Структура как в экспертной системе Operpom
+
+        $place = Place::model()->findByPk($hotelId);
+        if ( empty($place) )
+            throw new CHttpException(404, 'Неверный ID места');
+
+        $cats = $this->_getCatsChildren($place->id, 0);
+
+        $response = new Response($cats);
+        print $response;
 
         /*array(
             'name' => 'qwe',
@@ -31,6 +39,29 @@ class ServiceController extends Controller
                 ),
             ),
         );*/
+    }
+
+    private function _getCatsChildren($placeid, $pid) {
+        $cats =  ServiceCat::model()->findAll('placeid=:id AND pid=:pid', array(':id'=>$placeid, ':pid'=>$pid));
+        $ret = array();
+        foreach ( $cats as $element ) {
+            $new = &$ret[];
+            $new['id'] = $element->id;
+            $new['name'] = $element->title;
+            $new['items'] =  Service::model()->findAllByAttributes(array(
+                'catid' => $element->id,
+            ));
+        }
+
+        foreach ( $ret as &$element ) {
+            $subcats = $this->_getCatsChildren($placeid, $element['id']);
+            if ( !empty($subcats) ) {
+                $element['categories'] = $subcats;
+            } else {
+                $element['categories'] = array();
+            }
+        }
+        return $ret;
     }
 
 }

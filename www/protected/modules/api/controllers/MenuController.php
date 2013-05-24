@@ -23,10 +23,11 @@ class MenuController extends Controller
         if ( empty($place) )
             throw new CHttpException(404, 'Неверный ID места');
 
-        $cats = $this->getCatsChildren($place->id, 0);
+        $cats = $this->_getCatsChildren($place->id, 0);
 
-        var_dump($cats);
-        return $cats;
+
+        $response = new Response($cats);
+        print $response;
 
         return array(
             'id' => 'Category id',
@@ -54,22 +55,28 @@ class MenuController extends Controller
         );
     }
 
-    private function getCatsChildren($placeid, $pid) {
+    private function _getCatsChildren($placeid, $pid) {
         $cats =  MenuCat::model()->findAll('placeid=:id AND pid=:pid', array(':id'=>$placeid, ':pid'=>$pid));
         $ret = array();
         foreach ( $cats as $element ) {
             $new = &$ret[];
             $new['id'] = $element->id;
             $new['name'] = $element->title;
-            $new['items'] = array();
+            // НЕПРОСТИТЕЛЬНАЯ ВЕСЧЧЬ!!!! Но для скорости разработки пойдет пока :)
+            $new['items'] = MenuItem::model()->findAllByAttributes(array(
+                'catid' => $element->id,
+            ));
         }
 
         foreach ( $ret as &$element ) {
-            $subcats = $this->getCatsChildren($placeid, $element['id']);
+            $subcats = $this->_getCatsChildren($placeid, $element['id']);
             if ( !empty($subcats) ) {
                 $element['categories'] = $subcats;
+            } else {
+                $element['categories'] = array();
             }
         }
+
         return $ret;
     }
 

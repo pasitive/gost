@@ -100,7 +100,7 @@ class MenuItem extends CActiveRecord
         }
 
         if($meta) {
-            Service::model()->updateByPk($this->id, array(
+            MenuItem::model()->updateByPk($this->id, array(
                 'img' => $meta['fileName']
             ));
         }

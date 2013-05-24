@@ -8,10 +8,10 @@
 class MenuController extends Controller
 {
     /**
-     * @param $hotelId
+     * @param $point_id
      * @return array
      */
-    public function actionIndex($hotelId)
+    public function actionIndex($point_id)
     {
         /**
          * @todo Необходимо возвращать иерархическую структуру Меню с Элементами меню
@@ -19,7 +19,7 @@ class MenuController extends Controller
          * На выходе должен выдать Меню для этого Места
          */
 
-        $place = Place::model()->findByPk($hotelId);
+        $place = Place::model()->findByPk($point_id);
         if (empty($place))
             throw new CHttpException(404, 'Неверный ID места');
 
@@ -62,9 +62,25 @@ class MenuController extends Controller
             $new = & $ret[];
             $new['id'] = $element->id;
             $new['name'] = $element->title;
-            $new['items'] = MenuItem::model()->findAllByAttributes(array(
+
+            $buf = MenuItem::model()->findAllByAttributes(array(
                 'catid' => $element->id,
             ));
+
+            $menuItems = array();
+            /* @var $menuItem MenuItem */
+            foreach($buf as $menuItem) {
+                $menuItems[] = array(
+                    'id' => $menuItem->id,
+                    'point_id' => $placeid,
+                    'category' => $menuItem->catid,
+                    'name' => $menuItem->title,
+                    'image' => Yii::app()->request->getBaseUrl(true) . $menuItem->getImg(450),
+                );
+            }
+
+
+            $new['items'] = $menuItems;
         }
 
         foreach ($ret as &$element) {

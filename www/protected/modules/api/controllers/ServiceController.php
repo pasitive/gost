@@ -7,11 +7,11 @@
 
 class ServiceController extends Controller
 {
-    public function actionIndex($hotelId)
+    public function actionIndex($point_id)
     {
 
-        $place = Place::model()->findByPk($hotelId);
-        if ( empty($place) )
+        $place = Place::model()->findByPk($point_id);
+        if (empty($place))
             throw new CHttpException(404, 'Неверный ID места');
 
         $cats = $this->_getCatsChildren($place->id, 0);
@@ -41,21 +41,39 @@ class ServiceController extends Controller
         );*/
     }
 
-    private function _getCatsChildren($placeid, $pid) {
-        $cats =  ServiceCat::model()->findAll('placeid=:id AND pid=:pid', array(':id'=>$placeid, ':pid'=>$pid));
+    private function _getCatsChildren($placeid, $pid)
+    {
+        $cats = ServiceCat::model()->findAll('placeid=:id AND pid=:pid', array(':id' => $placeid, ':pid' => $pid));
         $ret = array();
-        foreach ( $cats as $element ) {
-            $new = &$ret[];
+        foreach ($cats as $element) {
+            $new = & $ret[];
             $new['id'] = $element->id;
             $new['name'] = $element->title;
-            $new['items'] =  Service::model()->findAllByAttributes(array(
+
+            $buf = Service::model()->findAllByAttributes(array(
                 'catid' => $element->id,
             ));
+
+            /*@var $serviceItem Service */
+
+            $serviceItems = array();
+            foreach($buf as $serviceItem) {
+                $serviceItems[] = array(
+                    'id' => $serviceItem->id,
+                    'point_id' => $placeid,
+                    'name' => $serviceItem->title,
+                    'desc' => $serviceItem->desc,
+                    'image' => Yii::app()->request->getBaseUrl(true) . $serviceItem->getImg(450),
+                    'price' => $serviceItem->price,
+                );
+            }
+
+            $new['items'] = $serviceItems;
         }
 
-        foreach ( $ret as &$element ) {
+        foreach ($ret as &$element) {
             $subcats = $this->_getCatsChildren($placeid, $element['id']);
-            if ( !empty($subcats) ) {
+            if (!empty($subcats)) {
                 $element['categories'] = $subcats;
             } else {
                 $element['categories'] = array();

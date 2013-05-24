@@ -68,12 +68,12 @@ class Service extends CActiveRecord
     public function attributeLabels()
     {
         return array(
-            'id' => 'ID',
-            'catid' => 'Catid',
-            'title' => 'Title',
-            'desc' => 'Desc',
-            'price' => 'Price',
-            'img' => 'Img',
+            'id' => Yii::t('Service', 'ID'),
+            'catid' => Yii::t('Service', 'Service category ID'),
+            'title' => Yii::t('Service', 'Title'),
+            'desc' => Yii::t('Service', 'Description'),
+            'price' => Yii::t('Service', 'Price'),
+            'img' => Yii::t('Service', 'Image'),
         );
     }
 
@@ -103,7 +103,7 @@ class Service extends CActiveRecord
             $this->processImage($this, $img, $size, $pathHash);
         }
 
-        if($meta) {
+        if ($meta) {
             Service::model()->updateByPk($this->id, array(
                 'img' => $meta['fileName']
             ));

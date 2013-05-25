@@ -47,7 +47,10 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'columns'=>array(
 		'id',
 		'title',
-		'typeid',
+		array(
+            'value' => 'Place::getTypeLabel($data->typeid)',
+            'header' => 'Type'
+        ),
 		'location_lat',
 		'location_lng',
 		array(

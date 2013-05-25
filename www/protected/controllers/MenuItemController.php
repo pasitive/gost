@@ -127,7 +127,7 @@ class MenuItemController extends Controller
 		if(isset($_GET['MenuItem']))
 			$model->attributes=$_GET['MenuItem'];
 
-		$this->render('admin',array(
+		$this->render('index',array(
 			'model'=>$model,
 		));
 	}

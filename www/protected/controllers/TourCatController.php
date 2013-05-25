@@ -127,7 +127,7 @@ class TourCatController extends Controller
 		if(isset($_GET['TourCat']))
 			$model->attributes=$_GET['TourCat'];
 
-		$this->render('admin',array(
+		$this->render('index',array(
 			'model'=>$model,
 		));
 	}

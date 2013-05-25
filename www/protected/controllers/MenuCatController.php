@@ -127,7 +127,7 @@ class MenuCatController extends Controller
 		if(isset($_GET['MenuCat']))
 			$model->attributes=$_GET['MenuCat'];
 
-		$this->render('admin',array(
+		$this->render('index',array(
 			'model'=>$model,
 		));
 	}

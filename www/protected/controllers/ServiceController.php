@@ -127,7 +127,7 @@ class ServiceController extends Controller
 		if(isset($_GET['Service']))
 			$model->attributes=$_GET['Service'];
 
-		$this->render('admin',array(
+		$this->render('index',array(
 			'model'=>$model,
 		));
 	}

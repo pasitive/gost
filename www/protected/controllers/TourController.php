@@ -127,7 +127,7 @@ class TourController extends Controller
 		if(isset($_GET['Tour']))
 			$model->attributes=$_GET['Tour'];
 
-		$this->render('admin',array(
+		$this->render('index',array(
 			'model'=>$model,
 		));
 	}

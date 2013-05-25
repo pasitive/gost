@@ -134,7 +134,7 @@ class OrderController extends Controller
 		if(isset($_GET['Order']))
 			$model->attributes=$_GET['Order'];
 
-		$this->render('admin',array(
+		$this->render('index',array(
 			'model'=>$model,
 		));
 	}

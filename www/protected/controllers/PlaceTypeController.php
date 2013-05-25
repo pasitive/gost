@@ -127,7 +127,7 @@ class PlaceTypeController extends Controller
 		if(isset($_GET['PlaceType']))
 			$model->attributes=$_GET['PlaceType'];
 
-		$this->render('admin',array(
+		$this->render('index',array(
 			'model'=>$model,
 		));
 	}

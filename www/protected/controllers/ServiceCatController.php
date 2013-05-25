@@ -127,7 +127,7 @@ class ServiceCatController extends Controller
 		if(isset($_GET['ServiceCat']))
 			$model->attributes=$_GET['ServiceCat'];
 
-		$this->render('admin',array(
+		$this->render('index',array(
 			'model'=>$model,
 		));
 	}

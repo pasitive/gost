@@ -12,7 +12,6 @@ $this->menu=array(
 	array('label'=>'Create PlaceType', 'url'=>array('create')),
 	array('label'=>'Update PlaceType', 'url'=>array('update', 'id'=>$model->id)),
 	array('label'=>'Delete PlaceType', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage PlaceType', 'url'=>array('admin')),
 );
 ?>
 

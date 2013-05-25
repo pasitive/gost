@@ -12,7 +12,6 @@ $this->menu=array(
 	array('label'=>'List PlaceType', 'url'=>array('index')),
 	array('label'=>'Create PlaceType', 'url'=>array('create')),
 	array('label'=>'View PlaceType', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage PlaceType', 'url'=>array('admin')),
 );
 ?>
 

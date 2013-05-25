@@ -12,7 +12,6 @@ $this->menu=array(
 	array('label'=>'List Service', 'url'=>array('index')),
 	array('label'=>'Create Service', 'url'=>array('create')),
 	array('label'=>'View Service', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage Service', 'url'=>array('admin')),
 );
 ?>
 

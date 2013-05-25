@@ -12,7 +12,6 @@ $this->menu=array(
 	array('label'=>'List TourCat', 'url'=>array('index')),
 	array('label'=>'Create TourCat', 'url'=>array('create')),
 	array('label'=>'View TourCat', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage TourCat', 'url'=>array('admin')),
 );
 ?>
 

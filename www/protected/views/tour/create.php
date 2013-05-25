@@ -9,7 +9,6 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'List Tour', 'url'=>array('index')),
-	array('label'=>'Manage Tour', 'url'=>array('admin')),
 );
 ?>
 

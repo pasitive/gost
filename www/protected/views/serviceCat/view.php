@@ -12,7 +12,6 @@ $this->menu=array(
 	array('label'=>'Create ServiceCat', 'url'=>array('create')),
 	array('label'=>'Update ServiceCat', 'url'=>array('update', 'id'=>$model->id)),
 	array('label'=>'Delete ServiceCat', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage ServiceCat', 'url'=>array('admin')),
 );
 ?>
 

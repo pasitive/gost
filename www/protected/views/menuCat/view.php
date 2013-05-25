@@ -12,9 +12,6 @@ $this->menu = array(
     array('label' => Yii::t('MenuCat', 'List menu categories'), 'url' => array('index')),
     array('label' => Yii::t('MenuCat', 'Create menu category'), 'url' => array('create')),
     array('label' => Yii::t('MenuCat', 'View menu category'), 'url' => array('view', 'id' => $model->id)),
-    array('label' => Yii::t('MenuCat', 'Manage menu categories'), 'url' => array('admin')),
-
-
     array('label' => Yii::t('MenuCat', 'Update menu category'), 'url' => array('update', 'id' => $model->id)),
     array('label' => Yii::t('MenuCat', 'Delete menu category'), 'url' => '#', 'linkOptions' => array('submit' => array('delete', 'id' => $model->id), 'confirm' => 'Are you sure you want to delete this item?')),
 );

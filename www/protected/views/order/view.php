@@ -9,7 +9,6 @@ $this->menu=array(
 	array('label'=>'Create order', 'url'=>array('create')),
 	array('label'=>'Update order', 'url'=>array('update', 'id'=>$model->id)),
 	array('label'=>'Delete order', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage order', 'url'=>array('admin')),
 );
 ?>
 

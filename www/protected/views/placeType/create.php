@@ -9,7 +9,6 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'List PlaceType', 'url'=>array('index')),
-	array('label'=>'Manage PlaceType', 'url'=>array('admin')),
 );
 ?>
 

@@ -12,7 +12,6 @@ $this->menu=array(
 	array('label'=>'List ServiceCat', 'url'=>array('index')),
 	array('label'=>'Create ServiceCat', 'url'=>array('create')),
 	array('label'=>'View ServiceCat', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage ServiceCat', 'url'=>array('admin')),
 );
 ?>
 

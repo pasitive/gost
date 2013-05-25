@@ -9,7 +9,6 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'List TourCat', 'url'=>array('index')),
-	array('label'=>'Manage TourCat', 'url'=>array('admin')),
 );
 ?>
 

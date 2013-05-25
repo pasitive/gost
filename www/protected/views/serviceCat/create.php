@@ -9,7 +9,6 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'List ServiceCat', 'url'=>array('index')),
-	array('label'=>'Manage ServiceCat', 'url'=>array('admin')),
 );
 ?>
 

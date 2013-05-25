@@ -9,7 +9,6 @@ $this->menu=array(
 	array('label'=>'List order', 'url'=>array('index')),
 	array('label'=>'Create order', 'url'=>array('create')),
 	array('label'=>'View order', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage order', 'url'=>array('admin')),
 );
 ?>
 

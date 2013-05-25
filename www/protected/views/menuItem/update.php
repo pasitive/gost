@@ -12,7 +12,6 @@ $this->menu=array(
 	array('label'=>'List MenuItem', 'url'=>array('index')),
 	array('label'=>'Create MenuItem', 'url'=>array('create')),
 	array('label'=>'View MenuItem', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage MenuItem', 'url'=>array('admin')),
 );
 ?>
 

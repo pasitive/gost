@@ -12,7 +12,6 @@ $this->menu = array(
     array('label' => Yii::t('MenuCat', 'List menu categories'), 'url' => array('index')),
     array('label' => Yii::t('MenuCat', 'Create menu category'), 'url' => array('create')),
     array('label' => Yii::t('MenuCat', 'View menu category'), 'url' => array('view', 'id' => $model->id)),
-    array('label' => Yii::t('MenuCat', 'Manage menu categories'), 'url' => array('admin')),
 );
 ?>
 

@@ -9,7 +9,6 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
     array('label' => Yii::t('MenuCat', 'List menu categories'), 'url' => array('index')),
-    array('label'=>Yii::t('MenuCat', 'Manage menu categories'), 'url'=>array('admin')),
 );
 ?>
 

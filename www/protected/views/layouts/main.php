@@ -34,13 +34,19 @@
 			'items'=>array(
 //                array('label'=>'Тип места', 'url'=>array('/placeType/index/')),
 				array('label'=>Yii::t('app', 'Places'), 'url'=>array('/place/index/')),
-                array('label'=>Yii::t('app', 'Service category'), 'url'=>array('/serviceCat/index/')),
-                array('label'=>Yii::t('app', 'Services'), 'url'=>array('/service/index/')),
-                array('label'=>Yii::t('app', 'Menu categories'), 'url'=>array('/menuCat/index/')),
-                array('label'=>Yii::t('app', 'Menu items'), 'url'=>array('/menuItem/index/')),
+                array('label'=>Yii::t('app', 'Services'), 'url'=>array('#'), 'items' => array(
+                    array('label'=>Yii::t('app', 'Service category'), 'url'=>array('/serviceCat/index/')),
+                    array('label'=>Yii::t('app', 'Services'), 'url'=>array('/service/index/')),
+                )),
+                array('label'=>Yii::t('app', 'Menu'), 'url'=>array('#'), 'items' => array(
+                    array('label'=>Yii::t('app', 'Menu categories'), 'url'=>array('/menuCat/index/')),
+                    array('label'=>Yii::t('app', 'Menu items'), 'url'=>array('/menuItem/index/')),
+                )),
                 array('label'=>Yii::t('app', 'Orders'), 'url'=>array('/order/index/')),
-                array('label'=>Yii::t('app', 'Tour categories'), 'url'=>array('/tourCat/index/')),
-                array('label'=>Yii::t('app', 'Tours'), 'url'=>array('/tour/index/')),
+                array('label'=>Yii::t('app', 'Tours'), 'url'=>array('#'), 'items' => array(
+                    array('label'=>Yii::t('app', 'Tour categories'), 'url'=>array('/tourCat/index/')),
+                    array('label'=>Yii::t('app', 'Tours'), 'url'=>array('/tour/index/')),
+                )),
                 array('label'=>Yii::t('app', 'Login'), 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>Yii::t('app', 'Logout') . ' ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
 			),
@@ -57,9 +63,9 @@
 	<div class="clear"></div>
 
 	<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
+		Copyright &copy; <?php echo date('Y'); ?> by Tourapp.<br/>
 		All Rights Reserved.<br/>
-		<?php echo Yii::powered(); ?>
+		<?php // echo Yii::powered(); ?>
 	</div><!-- footer -->
 
 </div><!-- page -->

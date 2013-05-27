@@ -3,10 +3,16 @@
  * User: Denis A Boldinov
  * Date: 5/23/13
  * Time: 12:44 PM
+ * @package api
  */
 
 class OrderController extends Controller
 {
+    /**
+     * @param $place_id
+     * @param $room
+     * @param $phone
+     */
     public function actionIndex($place_id, $room, $phone)
     {
         $order = new Order();

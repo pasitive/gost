@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Class TourController
+ * @package api
+ */
+
 class TourController extends Controller
 {
     /**

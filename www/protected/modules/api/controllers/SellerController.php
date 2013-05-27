@@ -1,4 +1,8 @@
 <?php
+/**
+ * Class SellerController
+ * @package api
+ */
 
 class SellerController extends Controller
 {

@@ -1,10 +1,18 @@
 <?php
 
+/**
+ * Class HotelController
+ * @package api
+ */
+
 class HotelController extends Controller
 {
     /**
-     * @param $lt
-     * @param $lg
+     * Method handles /api/hotel request
+     * @api
+     * @example /api/hotel?lt=1&lg=1 Example api request
+     * @param float $lt
+     * @param float $lg
      */
     public function actionIndex($lt, $lg)
     {
@@ -17,6 +25,11 @@ class HotelController extends Controller
         foreach ($model as $hotel) {
 
             $images = CJSON::decode($hotel->images) ? CJSON::decode($hotel->images) : array();
+            if (!empty($images)) {
+                foreach ($images as $index => $image) {
+                    $images[$index] = Yii::app()->request->getBaseUrl(true) . $hotel->getImageByName($image);
+                }
+            }
 
             $item = array(
                 'id' => $hotel->id,

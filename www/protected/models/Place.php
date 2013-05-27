@@ -168,7 +168,7 @@ class Place extends CActiveRecord
             foreach ($files as $file) {
                 if ($file !== null) {
                     $meta = $this->processImage($this, $file, false, $hashString);
-                    $texture[] = Yii::app()->request->getBaseUrl(true) . $this->getImageByName($meta['fileName']);
+                    $texture[] = $this->getImageByName($meta['fileName']);
                 }
             }
             $this->updateByPk($this->id, array(

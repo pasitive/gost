@@ -16,7 +16,6 @@ class ErrorController extends Controller
     public function actionError()
     {
         if ($error = Yii::app()->errorHandler->error) {
-
             $response = new Response(array(), $error['code'], $error['message']);
             print $response;
         }

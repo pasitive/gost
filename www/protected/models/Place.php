@@ -15,6 +15,7 @@
  *
  * The followings are the available model relations:
  * @property PlaceType $type
+ * @property PlaceReview[] $reviews
  */
 class Place extends CActiveRecord
 {
@@ -127,6 +128,7 @@ class Place extends CActiveRecord
         return array(
             'type' => array(self::HAS_ONE, 'PlaceType', 'id'),
 //            'serviceCat' => array(self::BELONGS_TO, 'ServiceCat', 'placeid'),
+            'reviews' => array(self::HAS_MANY, 'PlaceReview', 'placeid'),
         );
     }
 

@@ -7,12 +7,12 @@
 
 class OrderController extends Controller
 {
-    public function actionIndex($point_id, $room, $phone)
+    public function actionIndex($place_id, $room, $phone)
     {
         $order = new Order();
         $order->attributes = array(
             'room_number' => $room,
-            'placeid' => $point_id,
+            'placeid' => $place_id,
             'phone' => $phone,
         );
 

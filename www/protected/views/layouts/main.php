@@ -34,6 +34,7 @@
 			'items'=>array(
 //                array('label'=>'Тип места', 'url'=>array('/placeType/index/')),
 				array('label'=>Yii::t('app', 'Places'), 'url'=>array('/place/index/')),
+				array('label'=>Yii::t('app', 'Place reviews'), 'url'=>array('/placeReview/index/')),
                 array('label'=>Yii::t('app', 'Services'), 'url'=>array('#'), 'items' => array(
                     array('label'=>Yii::t('app', 'Service category'), 'url'=>array('/serviceCat/index/')),
                     array('label'=>Yii::t('app', 'Services'), 'url'=>array('/service/index/')),

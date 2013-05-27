@@ -126,7 +126,7 @@ class TourCat extends CActiveRecord
                 }
             }
 
-            $new['items'] = $tourItems;
+            $new['tours'] = $tourItems;
 
         }
 

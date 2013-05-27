@@ -52,7 +52,7 @@ class Place extends CActiveRecord
     /**
      * @return $this
      */
-    public function seller()
+    public function sellers()
     {
         return $this->typeScope(Place::TYPE_SELLER);
     }

@@ -1,35 +1,40 @@
 <?php
-/**
- * User: Denis A Boldinov
- * Date: 5/23/13
- * Time: 12:48 PM
- */
 
 class SellerController extends Controller
 {
-    public function actionIndex($sellerId)
+    public function actionIndex($lt, $lg)
     {
-        //@todo Структура как в экспертной системе Operpom
+        $model = Place::model()->sellers()->byLatLng($lt, $lg)->findAll();
 
-        /*array(
-            'name' => 'qwe',
-            'items' => array(
-                'item1' => array(
-                    'price'
-                ),
-            ),
-            'categories' => array(
-                'name' => 'qwe1.1',
-                'items' => array(
-                    'item1' => array(
-                        'name',
-                        'image',
-                    ),
-                ),
-                'categories' => array(
+        $result = array();
 
-                ),
-            ),
-        );*/
+        /* @var $seller Place */
+
+        foreach ($model as $seller) {
+
+            $images = CJSON::decode($seller->images) ? CJSON::decode($seller->images) : array();
+
+            $item = array(
+                'id' => $seller->id,
+                'name' => $seller->title,
+                'lt' => $seller->location_lat,
+                'lg' => $seller->location_lng,
+                'type' => $seller->typeid,
+                'images' => $images,
+                'avg_rating' => 0.0,
+            );
+
+            $menus = MenuItem::getCatsChildren($seller->id, 0);
+            $item['menus'] = $menus;
+
+            $services = Service::getCatsChildren($seller->id, 0);
+            $item['services'] = $services;
+
+            $result[] = $item;
+        }
+
+        $response = new Response($result);
+        print $response;
     }
+
 }

@@ -3,28 +3,19 @@
 class TourController extends Controller
 {
     /**
-     * @param $category_id
+     * @param $place_id
      * @return array
      */
-    public function actionIndex($category_id)
+    public function actionIndex($place_id)
     {
-        $tours = Tour::model()->findAll('catid=:catid', array(':catid'=>$category_id));
 
-        $ret = array();
-        foreach ( $tours as $tour ) {
-            $new = &$ret[];
-            $new['id'] = $tour->id;
-            $new['name'] = $tour->title;
-            $new['desc'] = $tour->desc;
-            $new['images'] = array();
-            foreach ( $tour->images as $image ) {
-                $new['images'][] = $image->img;
-            }
-        }
+        $place = Place::model()->findByPk($place_id);
+        if (empty($place))
+            throw new CHttpException(404, 'Неверный ID места');
 
-        $response = new Response($ret);
+        $cats = TourCat::getCatsChildren($place->id, 0);
+
+        $response = new Response($cats);
         print $response;
-
     }
-
 }

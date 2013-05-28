@@ -8,6 +8,7 @@
  * @property integer $catid
  * @property string $title
  * @property string $desc
+ * @property float $price
  *
  * The followings are the available model relations:
  * @property TourImage[] $images
@@ -33,10 +34,11 @@ class Tour extends CActiveRecord
 		return array(
 			array('catid', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>255),
-			array('desc', 'safe'),
+            array('price', 'length', 'max' => 10),
+            array('desc', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, catid, title, desc', 'safe', 'on'=>'search'),
+			array('id, catid, title, desc, price', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -63,6 +65,7 @@ class Tour extends CActiveRecord
 			'catid' => 'Catid',
 			'title' => 'Title',
 			'desc' => 'Desc',
+            'price' => 'Price',
 		);
 	}
 

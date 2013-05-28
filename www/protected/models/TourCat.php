@@ -102,9 +102,13 @@ class TourCat extends CActiveRecord
         return parent::model($className);
     }
 
-    public static function getCatsChildren($placeid, $pid)
+    public static function getCatsChildren($placeid = null, $pid)
     {
-        $cats = TourCat::model()->findAll('placeid=:id AND pid=:pid', array(':id' => $placeid, ':pid' => $pid));
+        if (!is_null($placeid)) {
+            $cats = TourCat::model()->findAll('placeid=:id AND pid=:pid', array(':id' => $placeid, ':pid' => $pid));
+        } else {
+            $cats = TourCat::model()->findAll('pid=:pid', array(':pid' => $pid));
+        }
 
         $ret = array();
 

@@ -19,9 +19,37 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
+    <?php
+        $allPlaces = Place::model()->findAll();
+        $firstPlace = $allPlaces[0];
+    ?>
+    <div class="row">
+        <?php echo $form->labelEx(Place::model(),'title'); ?>
+        <?php echo $form->dropDownList(
+            Place::model(), 'id',
+            CHtml::listData(Place::model()->findAll(), 'id', 'title'),
+            array(
+                'onchange' => '
+                $.get("/index.php/tourCat/ajaxGetCatsByPlace", {"place_id": this.value}, function(data) {
+                    $("#Tour_catid").empty();
+                    for ( i in data ) {
+                        $("#Tour_catid").append($("<option value=\"" + data[i].id + "\">" + data[i].title + "</option>"));
+                    }
+                });
+                '
+            )
+        ); ?>
+    </div>
+
 	<div class="row">
         <?php echo $form->labelEx($model,'catid'); ?>
-        <?php echo $form->dropDownList( $model, 'catid', CHtml::listData(TourCat::model()->findAll(), 'id', 'title'), array('empty' => array(0 => '---')) ); ?>
+        <?php echo $form->dropDownList(
+            $model,
+            'catid',
+            CHtml::listData(
+                TourCat::model()->findAll('placeid=:placeid', array(':placeid'=>$firstPlace->id)), 'id', 'title'
+            )
+        ); ?>
         <?php echo $form->error($model,'catid'); ?>
 	</div>
 

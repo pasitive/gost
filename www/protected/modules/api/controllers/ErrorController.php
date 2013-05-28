@@ -3,7 +3,9 @@
 class ErrorController extends Controller
 {
     /**
-     * @return array action filters
+     * In error controller filters method return empty array
+     *
+     * @return array
      */
     public function filters()
     {
@@ -12,6 +14,8 @@ class ErrorController extends Controller
 
     /**
      * This is the action to handle external exceptions.
+     *
+     * @internal
      */
     public function actionError()
     {

@@ -120,6 +120,7 @@ class TourCat extends CActiveRecord
                 $newItem['id'] = $tour->id;
                 $newItem['name'] = $tour->title;
                 $newItem['desc'] = $tour->desc;
+                $newItem['category_id'] = $element->id;
                 $newItem['images'] = array();
                 foreach ($tour->images as $image) {
                     $newItem['images'][] = Yii::app()->request->getBaseUrl(true) . $image->img;

@@ -8,9 +8,10 @@
 class HotelController extends Controller
 {
     /**
-     * Method handles /api/hotel request
+     * Method handles /api/hotel api request
+     *
      * @api
-     * @example /api/hotel?lt=1&lg=1 Example api request
+     *
      * @param float $lt
      * @param float $lg
      */

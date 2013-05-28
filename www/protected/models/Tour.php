@@ -10,7 +10,7 @@
  * @property string $desc
  *
  * The followings are the available model relations:
- * @property TourImage[] $tblTourImages
+ * @property TourImage[] $images
  * @property TourCat $cat
  */
 class Tour extends CActiveRecord
@@ -65,6 +65,51 @@ class Tour extends CActiveRecord
 			'desc' => 'Desc',
 		);
 	}
+
+    public function behaviors()
+    {
+        return array(
+            'ResourcesBehavior' => array(
+                'class' => 'ext.resourcesBehavior.ResourcesBehavior',
+                'resourcePath' => Yii::app()->params['uploadsDir'],
+            ),
+        );
+    }
+
+    public function getImageByName($name, $onlyFileName = false, $stripHashName = false)
+    {
+        return $this->getResourcePath($name, 0, array(
+            'onlyFileName' => $onlyFileName,
+            'stripHashName' => $stripHashName,
+        ));
+    }
+
+    public function afterSave()
+    {
+
+        $hashString = $this->generatePathHash();
+
+        $files = CUploadedFile::getInstances($this, 'images');
+
+        if (!empty($files)) {
+
+            foreach ( $files as $file ) {
+
+                $meta = $this->processImage($this, $file, false, $hashString);
+                $filename = $this->getImageByName($meta['fileName']);
+
+                $image = new TourImage();
+                $image->tourid = $this->id;
+                $image->img = $filename;
+                $image->save();
+
+            }
+
+        }
+
+        return parent::afterSave();
+
+    }
 
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.

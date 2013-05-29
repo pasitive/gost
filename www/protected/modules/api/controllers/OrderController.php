@@ -13,13 +13,15 @@ class OrderController extends Controller
      * @param $room
      * @param $phone
      */
-    public function actionIndex($place_id, $room, $phone)
+    public function actionIndex($place_id, $room, $phone, $lt = 0, $lg = 0)
     {
         $order = new Order();
         $order->attributes = array(
             'room_number' => $room,
             'placeid' => $place_id,
             'phone' => $phone,
+            'lt' => $lt,
+            'lg' => $lg
         );
 
         $response = null;
@@ -27,7 +29,7 @@ class OrderController extends Controller
         if (!$order->save()) {
             $response = new Response(array(), 1, 'Unable to save Order model (' . join(',', $order->getErrors()) . ')');
         } else {
-            $response = new Response(array('ok'));
+            $response = new Response($order);
         }
 
         print $response;

@@ -38,6 +38,7 @@ class Order extends CActiveRecord
         return array(
             array('room_number, placeid', 'numerical', 'integerOnly' => true),
             array('phone', 'safe'),
+            array('lt, lg', 'safe'),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
             array('id, room_number, placeid, phone', 'safe', 'on' => 'search'),

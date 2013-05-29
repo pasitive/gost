@@ -13,7 +13,7 @@ class OrderController extends Controller
      * @param $room
      * @param $phone
      */
-    public function actionIndex($place_id, $room, $phone, $lt = 0, $lg = 0)
+    public function actionIndex($place_id, $room = "", $phone = "", $lt = 0, $lg = 0)
     {
         $order = new Order();
         $order->attributes = array(

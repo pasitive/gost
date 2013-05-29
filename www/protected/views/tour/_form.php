@@ -67,6 +67,12 @@
 	</div>
 
     <div class="row">
+        <?php echo $form->labelEx($model, 'price'); ?>
+        <?php echo $form->textField($model, 'price', array('size' => 10, 'maxlength' => 10)); ?>
+        <?php echo $form->error($model, 'price'); ?>
+    </div>
+
+    <div class="row">
         <?php echo $form->labelEx($model,'images'); ?>
         <?php $this->widget('CMultiFileUpload', array('model'=>$model, 'attribute'=>'images')); ?>
         <?php echo $form->error($model,'images'); ?>

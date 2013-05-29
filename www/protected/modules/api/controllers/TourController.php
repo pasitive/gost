@@ -11,9 +11,9 @@ class TourController extends Controller
      * @param $place_id
      * @return array
      */
-    public function actionIndex($place_id=null)
+    public function actionIndex($place_id = "")
     {
-        if(!is_null($place_id)) {
+        if (!empty($place_id)) {
             $place = Place::model()->findByPk($place_id);
             if (empty($place))
                 throw new CHttpException(404, 'Неверный ID места');

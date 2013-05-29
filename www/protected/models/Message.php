@@ -11,6 +11,14 @@
  */
 class Message extends CActiveRecord
 {
+
+    public function defaultScope()
+    {
+        return array(
+            'order' => 'create_time DESC',
+        );
+    }
+
 	/**
 	 * @return string the associated database table name
 	 */

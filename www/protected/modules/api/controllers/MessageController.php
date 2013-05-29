@@ -19,6 +19,8 @@ class MessageController extends Controller
         $message->text = $msg;
         $message->save();
 
+        $message->refresh();
+
         $response = new Response($message);
         print $response;
     }

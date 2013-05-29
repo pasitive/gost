@@ -13,15 +13,21 @@ class MessageController extends Controller
      * @param string $msg
      * @return array
      */
-    public function actionIndex($msg = "")
+    public function actionCreate($msg = "")
     {
-
         $message = new Message();
         $message->text = $msg;
         $message->save();
 
-        $response = new Response(array('ok'));
+        $response = new Response($message);
         print $response;
+    }
 
+    public function actionList()
+    {
+        $model = Message::model()->findAll();
+
+        $response = new Response($model);
+        print $response;
     }
 }

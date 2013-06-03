@@ -129,10 +129,10 @@ class TourCat extends CActiveRecord
                 foreach ($tour->images as $image) {
                     $newItem['images'][] = Yii::app()->request->getBaseUrl(true) . $image->img;
                 }
+                $newItem['image'] = isset($newItem['images'][0]) ? $newItem['images'][0] : '';
             }
 
             $new['items'] = $tourItems;
-
         }
 
         foreach ($ret as &$element) {

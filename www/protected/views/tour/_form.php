@@ -72,6 +72,14 @@
         <?php echo $form->error($model, 'price'); ?>
     </div>
 
+    <?php if(!empty($model->images)) {
+        foreach($model->images as $image) {
+            echo CHtml::image($image->img);
+        }
+    }
+    ?>
+
+
     <div class="row">
         <?php echo $form->labelEx($model,'images'); ?>
         <?php $this->widget('CMultiFileUpload', array('model'=>$model, 'attribute'=>'images')); ?>

@@ -46,6 +46,10 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'filter'=>null,
 	'columns'=>array(
 		'id',
+        array(
+            'type' => 'image',
+            'value' => '$data->images[0]->img'
+        ),
 		'catid',
 		'title',
 		'desc',

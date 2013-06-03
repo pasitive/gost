@@ -47,8 +47,8 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'columns'=>array(
 		'id',
         array(
-            'type' => 'image',
-            'value' => '$data->images[0]->img'
+            'type' => 'raw',
+            'value' => "CHtml::image($data->images[0]->img, '', array('width' => 150))"
         ),
 		'catid',
 		'title',

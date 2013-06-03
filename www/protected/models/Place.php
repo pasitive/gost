@@ -168,7 +168,7 @@ class Place extends CActiveRecord
             foreach ($files as $file) {
                 if ($file !== null) {
                     $meta = $this->processImage($this, $file, false, $hashString);
-                    $texture[] = $this->getImageByName($meta['fileName']);
+                    $texture[] = $meta['fileName'];
                 }
             }
             $this->updateByPk($this->id, array(

@@ -26,6 +26,7 @@ class HotelController extends Controller
         foreach ($model as $hotel) {
 
             $images = CJSON::decode($hotel->images) ? CJSON::decode($hotel->images) : array();
+
             if (!empty($images)) {
                 foreach ($images as $index => $image) {
                     $images[$index] = Yii::app()->request->getBaseUrl(true) . $hotel->getImageByName($image);

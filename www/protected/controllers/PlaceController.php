@@ -32,11 +32,11 @@ class PlaceController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update', 'ajaxGetPlacesByType'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin','delete', 'ajaxGetPlacesByType'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -146,6 +146,23 @@ class PlaceController extends Controller
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
 	}
+
+
+    public function actionAjaxGetPlacesByType($type_id) {
+
+        $places = Place::model()->findAll('typeid=:typeid', array(':typeid'=>$type_id));
+
+        $ret = array();
+        foreach ( $places as $place ) {
+            $new = &$ret[];
+            $new = new \stdClass();
+            $new->id = $place->id;
+            $new->title = $place->title;
+        }
+
+        header('Content-type: application/json');
+        print CJSON::encode($ret);
+    }
 
 	/**
 	 * Performs the AJAX validation.

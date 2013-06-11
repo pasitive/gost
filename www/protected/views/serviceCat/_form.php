@@ -19,15 +19,48 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
+    <?php
+    $allPlaces = Place::model()->findAll();
+    $firstPlace = $allPlaces[0];
+    ?>
+
 	<div class="row">
 		<?php echo $form->labelEx($model,'placeid'); ?>
-		<?php echo $form->dropDownList( $model,'placeid', CHtml::listData(Place::model()->findAll(), 'id', 'title'), array('empty' => array(0 => '---')) ); ?>
+		<?php echo $form->dropDownList(
+            $model,
+            'placeid',
+            CHtml::listData(
+                $allPlaces,
+                'id',
+                'title'
+            ),
+            array(
+                'onchange' => '
+                $.get("/index.php/serviceCat/ajaxGetCatsByPlace", {"place_id": this.value}, function(data) {
+                    $("#ServiceCat_pid").empty();
+                    $("#ServiceCat_pid").append($("<option value=\"0\">---</option>"));
+                    for ( i in data ) {
+                        $("#ServiceCat_pid").append($("<option value=\"" + data[i].id + "\">" + data[i].title + "</option>"));
+                    }
+                });
+                '
+            )
+        ); ?>
 		<?php echo $form->error($model,'placeid'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'pid'); ?>
-		<?php echo $form->dropDownList( $model,'pid', CHtml::listData($model->findAll(), 'id', 'title'), array('empty' => array(0 => '---')) ); ?>
+		<?php echo $form->dropDownList(
+            $model,
+            'pid',
+            CHtml::listData(
+                $model->findAll('placeid=:placeid', array(':placeid'=>$firstPlace->id)),
+                'id',
+                'title'
+            ),
+            array('empty' => array(0 => '---'))
+        ); ?>
 		<?php echo $form->error($model,'pid'); ?>
 	</div>
 

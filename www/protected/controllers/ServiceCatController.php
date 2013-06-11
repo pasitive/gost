@@ -32,11 +32,11 @@ class ServiceCatController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update', 'ajaxGetCatsByPlace'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin','delete', 'ajaxGetCatsByPlace'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -146,6 +146,26 @@ class ServiceCatController extends Controller
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
 	}
+
+    /**
+     * @param integer $place_id
+     */
+    public function actionAjaxGetCatsByPlace($place_id) {
+
+        $cats = ServiceCat::model()->findAll('placeid=:placeid', array(':placeid'=>$place_id));
+
+        $ret = array();
+        foreach ( $cats as $cat ) {
+            $new = &$ret[];
+            $new = new \stdClass();
+            $new->id = $cat->id;
+            $new->title = $cat->title;
+        }
+
+        header('Content-type: application/json');
+        print CJSON::encode($ret);
+
+    }
 
 	/**
 	 * Performs the AJAX validation.

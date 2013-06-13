@@ -4,6 +4,29 @@
 /* @var $form CActiveForm */
 ?>
 
+<script>
+function loadDataIntoSelect(id, data, nullValues) {
+    id.empty();
+    if ( nullValues ) {
+        id.append($("<option value=\"0\">---</option>"));
+    }
+    for ( i in data ) {
+        id.append($("<option value=\"" + data[i].id + "\">" + data[i].title + "</option>"));
+    }
+}
+function changePlaceID(id) {
+    $.get("/index.php/serviceCat/ajaxGetCatsByPlace", {"place_id": id}, function(data) {
+        loadDataIntoSelect($("#ServiceCat_pid"), data, true);
+    });
+}
+function changeTypeID(id) {
+    $.get("/index.php/place/ajaxGetPlacesByType", {"type_id": id}, function(data) {
+        loadDataIntoSelect($("#ServiceCat_placeid"), data);
+        changePlaceID(data[0].id);
+    });
+}
+</script>
+
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
@@ -20,30 +43,30 @@
 	<?php echo $form->errorSummary($model); ?>
 
     <?php
-    $allPlaces = Place::model()->findAll();
+    $allTypes = Place::getAllTypes();
+    $firstType = $allTypes[0];
+    $allPlaces = Place::model()->findAll('typeid=:typeid', array(':typeid'=>0));
     $firstPlace = $allPlaces[0];
     ?>
 
+    <div class="row">
+        Тип места:
+        <?php echo $form->dropDownList(Place::model(), 'typeid', $allTypes,
+            array(
+                'onchange' => 'changeTypeID(this.value);',
+            )
+        ); ?>
+    </div>
+
 	<div class="row">
 		<?php echo $form->labelEx($model,'placeid'); ?>
-		<?php echo $form->dropDownList(
-            $model,
-            'placeid',
-            CHtml::listData(
+		<?php echo $form->dropDownList( $model, 'placeid', CHtml::listData(
                 $allPlaces,
                 'id',
                 'title'
             ),
             array(
-                'onchange' => '
-                $.get("/index.php/serviceCat/ajaxGetCatsByPlace", {"place_id": this.value}, function(data) {
-                    $("#ServiceCat_pid").empty();
-                    $("#ServiceCat_pid").append($("<option value=\"0\">---</option>"));
-                    for ( i in data ) {
-                        $("#ServiceCat_pid").append($("<option value=\"" + data[i].id + "\">" + data[i].title + "</option>"));
-                    }
-                });
-                '
+                'onchange' => 'changePlaceID(this.value);'
             )
         ); ?>
 		<?php echo $form->error($model,'placeid'); ?>
@@ -51,10 +74,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'pid'); ?>
-		<?php echo $form->dropDownList(
-            $model,
-            'pid',
-            CHtml::listData(
+		<?php echo $form->dropDownList( $model, 'pid', CHtml::listData(
                 $model->findAll('placeid=:placeid', array(':placeid'=>$firstPlace->id)),
                 'id',
                 'title'

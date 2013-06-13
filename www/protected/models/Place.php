@@ -36,10 +36,14 @@ class Place extends CActiveRecord
         ));
     }
 
+    public static function getAllTypes() {
+        return self::$typeLabels;
+    }
+
     public static function getTypeLabel($typeId)
     {
-//        assert(in_array($typeId, array_keys(self::$typeLabels)));
-        return self::$typeLabels[$typeId];
+        $types = self::getAllTypes();
+        return $types[$typeId];
     }
 
     /**
@@ -127,7 +131,7 @@ class Place extends CActiveRecord
         // class name for the relations automatically generated below.
         return array(
             'type' => array(self::HAS_ONE, 'PlaceType', 'id'),
-//            'serviceCat' => array(self::BELONGS_TO, 'ServiceCat', 'placeid'),
+            'cats' => array(self::HAS_MANY, 'ServiceCat', 'placeid'),
             'reviews' => array(self::HAS_MANY, 'PlaceReview', 'placeid'),
         );
     }

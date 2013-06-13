@@ -8,6 +8,9 @@
  * @property integer $room_number
  * @property string $placeid
  * @property string $phone
+ *
+ * The followings are the available model relations:
+ * @property Place $place
  */
 class Order extends CActiveRecord
 {
@@ -50,9 +53,9 @@ class Order extends CActiveRecord
      */
     public function relations()
     {
-        // NOTE: you may need to adjust the relation name and the related
-        // class name for the relations automatically generated below.
-        return array();
+        return array(
+            'place' => array(self::BELONGS_TO, 'Place', 'placeid'),
+        );
     }
 
     /**

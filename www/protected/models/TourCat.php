@@ -46,7 +46,7 @@ class TourCat extends CActiveRecord
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return array(
-            'place' => array(self::HAS_ONE, 'Place', 'id'),
+            'place' => array(self::BELONGS_TO, 'Place', 'placeid'),
         );
     }
 
@@ -56,10 +56,11 @@ class TourCat extends CActiveRecord
     public function attributeLabels()
     {
         return array(
-            'id' => 'ID',
-            'placeid' => 'Placeid',
-            'pid' => 'Pid',
-            'title' => 'Title',
+            'id' => Yii::t('TourCat', 'ID'),
+            'placeid' => Yii::t('TourCat', 'Place ID'),
+            'place' => Yii::t('TourCat', 'Place'),
+            'pid' => Yii::t('TourCat', 'Parent Category ID'),
+            'title' => Yii::t('TourCat', 'Title'),
         );
     }
 

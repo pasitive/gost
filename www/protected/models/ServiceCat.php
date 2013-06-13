@@ -58,6 +58,7 @@ class ServiceCat extends CActiveRecord
         return array(
             'id' => Yii::t('ServiceCat', 'ID'),
             'placeid' => Yii::t('ServiceCat', 'Place ID'),
+            'place' => Yii::t('ServiceCat', 'Place'),
             'pid' => Yii::t('ServiceCat', 'Parent category ID'),
             'title' => Yii::t('ServiceCat', 'Title'),
         );

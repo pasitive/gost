@@ -144,6 +144,15 @@ class Service extends CActiveRecord
         ));
     }
 
+    public function groupByPlaceCatSearch() {
+        $dp = $this->search();
+        $criteria = $dp->getCriteria();
+        $criteria->with = 'cat';
+        $criteria->order = 'cat.placeid, catid';
+        $dp->setCriteria($criteria);
+        return $dp;
+    }
+
     /**
      * Returns the static model of the specified AR class.
      * Please note that you should have this exact method in all your CActiveRecord descendants!

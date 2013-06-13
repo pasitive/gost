@@ -4,6 +4,16 @@
 /* @var $form CActiveForm */
 ?>
 
+<?php
+if ( null == $model->place ) {
+    $model->place = new Place();
+    $firstPlace = $model->place->find(
+        'typeid=:typeid',
+        array(':typeid'=> 0)
+    );
+}
+?>
+
 <script>
 function loadDataIntoSelect(id, data, nullValues) {
     id.empty();
@@ -50,34 +60,39 @@ function changeTypeID(id) {
     ?>
 
     <div class="row">
-        Тип места:
-        <?php echo $form->dropDownList(Place::model(), 'typeid', $allTypes,
-            array(
-                'onchange' => 'changeTypeID(this.value);',
-            )
+        <?php echo $form->labelEx($model->place, 'typeid'); ?>
+        <?php echo $form->dropDownList(
+            $model->place, 'typeid', Place::getAllTypes(),
+            array('onchange' => 'changeTypeID(this.value);')
         ); ?>
     </div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'placeid'); ?>
-		<?php echo $form->dropDownList( $model, 'placeid', CHtml::listData(
-                $allPlaces,
-                'id',
-                'title'
+		<?php echo $form->labelEx($model,'place'); ?>
+		<?php echo $form->dropDownList(
+            $model, 'placeid',
+            CHtml::listData(
+                $model->place->findAll(
+                    'typeid=:typeid',
+                    array(':typeid'=> (null == $model->place->typeid) ? 0 : $model->place->typeid)
+                ),
+                'id', 'title'
             ),
-            array(
-                'onchange' => 'changePlaceID(this.value);'
-            )
+            array('onchange' => 'changePlaceID(this.value);')
         ); ?>
 		<?php echo $form->error($model,'placeid'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'pid'); ?>
-		<?php echo $form->dropDownList( $model, 'pid', CHtml::listData(
-                $model->findAll('placeid=:placeid', array(':placeid'=>$firstPlace->id)),
-                'id',
-                'title'
+		<?php echo $form->dropDownList(
+            $model, 'pid',
+            CHtml::listData(
+                $model->findAll(
+                    'placeid=:placeid',
+                    array(':placeid' => (null == $model->place->id) ? $firstPlace->id : $model->place->id)
+                ),
+                'id', 'title'
             ),
             array('empty' => array(0 => '---'))
         ); ?>

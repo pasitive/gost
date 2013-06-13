@@ -77,7 +77,7 @@ if ( null == $model->cat ) {
             ),
             array('onchange' => 'changePlaceID(this.value);')
         ); ?>
-        <?php echo $form->error($model,'catid'); ?>
+        <?php echo $form->error($model->cat,'placeid'); ?>
     </div>
 
     <div class="row">

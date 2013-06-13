@@ -39,13 +39,14 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 )); ?>
 </div><!-- search-form -->
 
-<?php $this->widget('zii.widgets.grid.CGridView', array(
+<?php $this->widget('ext.groupgridview.GroupGridView', array(
 	'id'=>'service-cat-grid',
 	'dataProvider'=>$model->search(),
+    'mergeColumns' => 'place.title',
 	'filter'=>null,
 	'columns'=>array(
-		'id',
-		'place.title',
+        'place.title',
+        'id',
 		'pid',
 		'title',
 		array(

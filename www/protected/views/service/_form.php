@@ -4,6 +4,42 @@
 /* @var $form CActiveForm */
 ?>
 
+<?php
+if ( null == $model->cat ) {
+    $model->cat = new ServiceCat();
+    $model->cat->place = new Place();
+    $firstPlace = $model->cat->place->find(
+        'typeid=:typeid',
+        array(':typeid'=> 0)
+    );
+}
+?>
+
+<script>
+    function loadDataIntoSelect(id, data, nullValues) {
+        id.empty();
+        if ( nullValues ) {
+            id.append($("<option value=\"0\">---</option>"));
+        }
+        for ( i in data ) {
+            id.append($("<option value=\"" + data[i].id + "\">" + data[i].title + "</option>"));
+        }
+    }
+
+    function changePlaceID(id) {
+        $.get("/index.php/serviceCat/ajaxGetCatsByPlace", {"place_id": id}, function(data) {
+            loadDataIntoSelect($("#Service_catid"), data);
+        });
+    }
+
+    function changeTypeID(id) {
+        $.get("/index.php/place/ajaxGetPlacesByType", {"type_id": id}, function(data) {
+            loadDataIntoSelect($("#Place_id"), data);
+            changePlaceID(data[0].id);
+        });
+    }
+</script>
+
 <div class="form">
 
     <?php $form = $this->beginWidget('CActiveForm', array(
@@ -21,14 +57,41 @@
     <?php echo $form->errorSummary($model); ?>
 
     <div class="row">
-        <?php echo $form->labelEx(Place::model(), 'title'); ?>
-        <?php echo $form->dropDownList( Place::model(),'id', CHtml::listData(Place::model()->findAll(), 'id', 'title'), array('empty' => array(0 => '---')) ); ?>
+        <?php echo $form->labelEx($model->cat->place, 'typeid'); ?>
+        <?php echo $form->dropDownList(
+            $model->cat->place, 'typeid', Place::getAllTypes(),
+            array('onchange' => 'changeTypeID(this.value);')
+        ); ?>
+    </div>
+
+    <div class="row">
+        <?php echo $form->labelEx($model->cat, 'place'); ?>
+        <?php echo $form->dropDownList(
+            $model->cat->place,'id',
+            CHtml::listData(
+                $model->cat->place->findAll(
+                    'typeid=:typeid',
+                    array(':typeid'=> (null == $model->cat->place->typeid) ? 0 : $model->cat->place->typeid)
+                ),
+                'id', 'title'
+            ),
+            array('onchange' => 'changePlaceID(this.value);')
+        ); ?>
         <?php echo $form->error($model,'catid'); ?>
     </div>
 
     <div class="row">
-        <?php echo $form->labelEx($model, 'catid'); ?>
-        <?php echo $form->dropDownList( $model, 'catid', CHtml::listData(ServiceCat::model()->findAll(), 'id', 'title'), array('empty' => array(0 => '---')) ); ?>
+        <?php echo $form->labelEx($model, 'cat'); ?>
+        <?php echo $form->dropDownList(
+            $model, 'catid',
+            CHtml::listData(
+                ServiceCat::model()->findAll(
+                    'placeid=:placeid',
+                    array(':placeid'=> (null == $model->cat->place->id) ? $firstPlace->id : $model->cat->place->id)
+                ),
+                'id', 'title'
+            )
+        ); ?>
         <?php echo $form->error($model, 'catid'); ?>
     </div>
 

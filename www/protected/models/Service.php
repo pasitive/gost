@@ -58,7 +58,7 @@ class Service extends CActiveRecord
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return array(
-            'cat' => array(self::HAS_ONE, 'ServiceCat', 'id'),
+            'cat' => array(self::BELONGS_TO, 'ServiceCat', 'catid'),
         );
     }
 
@@ -70,6 +70,7 @@ class Service extends CActiveRecord
         return array(
             'id' => Yii::t('Service', 'ID'),
             'catid' => Yii::t('Service', 'Service category ID'),
+            'cat' => Yii::t('Service', 'Service category'),
             'title' => Yii::t('Service', 'Title'),
             'desc' => Yii::t('Service', 'Description'),
             'price' => Yii::t('Service', 'Price'),

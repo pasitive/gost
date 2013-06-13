@@ -46,7 +46,7 @@ class ServiceCat extends CActiveRecord
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return array(
-            'place' => array(self::HAS_ONE, 'Place', 'id'),
+            'place' => array(self::BELONGS_TO, 'Place', 'placeid'),
         );
     }
 

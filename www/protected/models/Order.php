@@ -8,6 +8,8 @@
  * @property integer $room_number
  * @property string $placeid
  * @property string $phone
+ * @property float $location_lat
+ * @property float $location_lng
  *
  * The followings are the available model relations:
  * @property Place $place
@@ -68,6 +70,8 @@ class Order extends CActiveRecord
             'room_number' => Yii::t('Order', 'Room number'),
             'placeid' => Yii::t('Order', 'Place ID'),
             'phone' => Yii::t('Order', 'Phone'),
+            'location_lat' => Yii::t('Order', 'Location Latitude'),
+            'location_lng' => Yii::t('Order', 'Location Longitude'),
         );
     }
 

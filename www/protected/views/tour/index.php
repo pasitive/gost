@@ -40,21 +40,23 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 )); ?>
 </div><!-- search-form -->
 
-<?php $this->widget('zii.widgets.grid.CGridView', array(
+<?php $this->widget('ext.groupgridview.GroupGridView', array(
 	'id'=>'tour-grid',
 	'dataProvider'=>$model->search(),
-	'filter'=>null,
+    'mergeColumns' => array('cat.place.title', 'cat.title'),
+    'filter'=>null,
 	'columns'=>array(
-		'id',
+        'cat.place.title',
+        'cat.title',
+        'id',
+		'title',
+		'desc',
+        'price',
         array(
             'type' => 'raw',
             'value' => 'CHtml::image($data->images[0]->img, "", array("width" => 150))'
         ),
-		'catid',
-		'title',
-		'desc',
-        'price',
-		array(
+        array(
 			'class'=>'CButtonColumn',
 		),
 	),

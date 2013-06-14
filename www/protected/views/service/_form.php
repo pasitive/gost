@@ -67,7 +67,7 @@ if ( null == $model->cat ) {
     <div class="row">
         <?php echo $form->labelEx($model->cat, 'place'); ?>
         <?php echo $form->dropDownList(
-            $model->cat->place,'id',
+            $model->cat->place, 'id',
             CHtml::listData(
                 $model->cat->place->findAll(
                     'typeid=:typeid',
@@ -85,7 +85,7 @@ if ( null == $model->cat ) {
         <?php echo $form->dropDownList(
             $model, 'catid',
             CHtml::listData(
-                ServiceCat::model()->findAll(
+                $model->cat->findAll(
                     'placeid=:placeid',
                     array(':placeid'=> (null == $model->cat->place->id) ? $firstPlace->id : $model->cat->place->id)
                 ),

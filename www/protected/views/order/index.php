@@ -51,7 +51,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'room_number',
         array(
             'type' => 'raw',
-            'value' => 'CHtml::link("На карте", "http://maps.google.com?ll=$data->lt,$data->lg")',
+            'value' => 'CHtml::link("На карте", "http://maps.google.com?ll={$data->location_lat},{$data->location_lng}&z=11")',
         ),
 		array(
 			'class'=>'CButtonColumn',

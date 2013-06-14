@@ -69,13 +69,17 @@
     $(function () {
 
         var map = null;
-
+        var point = null;
         ymaps.ready(init);
 
         // Инициализации карты
         function init() {
 
-            var mapOptions = {center: [55.76, 37.64], zoom: 8, type: "yandex#map"},
+            var mapOptions = {
+                    center: [55.76, 37.64],
+                    zoom: 8,
+                    type: "yandex#map"
+                },
                 placemark = null;
 
             initMap();
@@ -130,7 +134,20 @@
                         e.preventDefault();
                         geocode($(this))
                     }
-                });
+            });
+
+            map.events.add('click', function(e) {
+                var coords = e.get('coordPosition');
+                if ( null == point ) {
+                    point = new ymaps.Placemark(coords, {}, {"draggable":true});
+                    point.events.add('dragend', function (e) {
+                        var _this = e.get('target');
+                        setHiddenCoords( _this.geometry.getCoordinates() );
+                    });
+                    map.geoObjects.add(point);
+                    setHiddenCoords(coords);
+                }
+            });
 
         }
     });

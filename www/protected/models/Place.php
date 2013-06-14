@@ -111,7 +111,7 @@ class Place extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('title, address', 'required'),
+            array('title', 'required'),
             array('typeid', 'numerical', 'integerOnly' => true),
             array('location_lat, location_lng', 'numerical'),
             array('title', 'length', 'max' => 255),

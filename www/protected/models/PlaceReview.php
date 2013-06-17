@@ -71,12 +71,13 @@ class PlaceReview extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'placeid' => 'Placeid',
-			'rating' => 'Rating',
-			'text' => 'Text',
-			'create_time' => 'Create Time',
-			'update_time' => 'Update Time',
+			'id' => Yii::t('PlaceReview', 'ID'),
+			'placeid' => Yii::t('PlaceReview', 'Place ID'),
+            'place' => Yii::t('PlaceReview', 'Place'),
+			'rating' => Yii::t('PlaceReview', 'Rating'),
+			'text' => Yii::t('PlaceReview', 'Text'),
+			'create_time' => Yii::t('PlaceReview', 'Create time'),
+			'update_time' => Yii::t('PlaceReview', 'Update time'),
 		);
 	}
 

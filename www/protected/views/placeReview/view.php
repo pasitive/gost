@@ -3,16 +3,16 @@
 /* @var $model PlaceReview */
 
 $this->breadcrumbs=array(
-	'Place Reviews'=>array('index'),
+    Yii::t('app', 'Place reviews')=>array('index'),
 	$model->id,
 );
 
 $this->menu=array(
-	array('label'=>'List PlaceReview', 'url'=>array('index')),
-	array('label'=>'Create PlaceReview', 'url'=>array('create')),
-	array('label'=>'Update PlaceReview', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete PlaceReview', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage PlaceReview', 'url'=>array('admin')),
+    array('label'=>Yii::t('PlaceReview', 'List place review'), 'url'=>array('index')),
+    array('label'=>Yii::t('PlaceReview', 'Create place review'), 'url'=>array('create')),
+	array('label'=>Yii::t('PlaceReview', 'Update place review'), 'url'=>array('update', 'id'=>$model->id)),
+	array('label'=>Yii::t('PlaceReview', 'Delete place review'), 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>Yii::t('app', 'Are you sure?'))),
+    array('label'=>Yii::t('PlaceReview', 'Manage place reviews'), 'url'=>array('admin')),
 );
 ?>
 

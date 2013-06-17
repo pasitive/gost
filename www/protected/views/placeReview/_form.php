@@ -20,7 +20,7 @@
 	<?php echo $form->errorSummary($model); ?>
 
     <div class="row">
-        <?php echo $form->labelEx(Place::model(), 'title'); ?>
+        <?php echo $form->labelEx($model, 'place'); ?>
         <?php echo $form->dropDownList( $model,'placeid', CHtml::listData(Place::model()->findAll(), 'id', 'title') ); ?>
         <?php echo $form->error($model,'placeid'); ?>
     </div>
@@ -38,7 +38,7 @@
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Save')); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

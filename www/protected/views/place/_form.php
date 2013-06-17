@@ -27,7 +27,7 @@
     </div>
 
     <div class="row">
-        <?php echo $form->labelEx($model, 'typeid'); ?>
+        <?php echo $form->labelEx($model, 'type'); ?>
         <?php echo $form->dropDownList($model, 'typeid', Place::$typeLabels); ?>
         <?php echo $form->error($model, 'typeid'); ?>
     </div>
@@ -56,7 +56,7 @@
     <?php echo $form->hiddenField($model, 'location_lat'); ?>
 
     <div class="row buttons">
-        <?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+        <?php echo CHtml::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Save')); ?>
     </div>
 
     <?php $this->endWidget(); ?>

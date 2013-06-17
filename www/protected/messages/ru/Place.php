@@ -17,10 +17,17 @@
  * NOTE, this file must be saved in UTF-8 encoding.
  */
 return array (
-  'ID' => '',
-  'Images' => '',
-  'Latitude' => '',
-  'Longitude' => '',
-  'Title' => '',
-  'Type ID' => '',
+    'ID' => 'ID',
+    'Title' => 'Название',
+    'Type ID' => 'ID типа заведения',
+    'Type' => 'Тип заведения',
+    'Latitude' => 'Широта',
+    'Longitude' => 'Долгота',
+    'Address' => 'Адрес',
+    'Images' => 'Изображения',
+    'Create place'=>'Создать заведение',
+    'List place' => 'Список заведений',
+    'View place' => 'Просмотр заведения',
+    'Update place' => 'Редактировать заведение',
+    'Delete place' => 'Удалить заведение',
 );

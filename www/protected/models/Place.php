@@ -145,8 +145,10 @@ class Place extends CActiveRecord
             'id' => Yii::t('Place', 'ID'),
             'title' => Yii::t('Place', 'Title'),
             'typeid' => Yii::t('Place', 'Type ID'),
+            'type' => Yii::t('Place', 'Type'),
             'location_lat' => Yii::t('Place', 'Latitude'),
             'location_lng' => Yii::t('Place', 'Longitude'),
+            'address' => Yii::t('Place', 'Address'),
             'images' => Yii::t('Place', 'Images')
         );
     }

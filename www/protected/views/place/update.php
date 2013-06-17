@@ -3,18 +3,18 @@
 /* @var $model Place */
 
 $this->breadcrumbs=array(
-	'Places'=>array('index'),
+    Yii::t('app', 'Places')=>array('index'),
 	$model->title=>array('view','id'=>$model->id),
-	'Update',
+    Yii::t('app', 'Update'),
 );
 
 $this->menu=array(
-	array('label'=>'List Place', 'url'=>array('index')),
-	array('label'=>'Create Place', 'url'=>array('create')),
-	array('label'=>'View Place', 'url'=>array('view', 'id'=>$model->id)),
+    array('label'=>Yii::t('Place', 'List place'), 'url'=>array('index')),
+    array('label'=>Yii::t('Place', 'Create place'), 'url'=>array('create')),
+	array('label'=>Yii::t('Place', 'View place'), 'url'=>array('view', 'id'=>$model->id)),
 );
 ?>
 
-<h1>Update Place <?php echo $model->id; ?></h1>
+<h1><?php echo Yii::t('Place', 'Update place'); ?> #<?php echo $model->id; ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

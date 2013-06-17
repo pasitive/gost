@@ -3,13 +3,13 @@
 /* @var $model Place */
 
 $this->breadcrumbs=array(
-	'Places'=>array('index'),
-	'Manage',
+    Yii::t('app', 'Places')=>array('index'),
+    Yii::t('Place', 'List place'),
 );
 
 $this->menu=array(
-	array('label'=>'List Place', 'url'=>array('index')),
-	array('label'=>'Create Place', 'url'=>array('create')),
+	array('label'=>Yii::t('Place', 'List place'), 'url'=>array('index')),
+	array('label'=>Yii::t('Place', 'Create place'), 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Places</h1>
+<h1><?php echo Yii::t('Place', 'List place'); ?></h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
@@ -49,7 +49,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'title',
 		array(
             'value' => 'Place::getTypeLabel($data->typeid)',
-            'header' => 'Type'
+            'header' => Yii::t('Place', 'Type')
         ),
 		'location_lat',
 		'location_lng',

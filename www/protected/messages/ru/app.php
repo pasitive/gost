@@ -17,12 +17,16 @@
  * NOTE, this file must be saved in UTF-8 encoding.
  */
 return array (
-  'Login' => '',
-  'Logout' => '',
-  'Menu categories' => '',
-  'Menu items' => '',
-  'Orders' => '',
-  'Places' => '',
-  'Service category' => '',
-  'Services' => '',
+  'Login' => 'Вход',
+  'Logout' => 'Выход',
+  'Menu' => 'Меню',
+  'Menu categories' => 'Категории меню',
+  'Menu items' => 'Элементы меню',
+  'Orders' => 'Заказы',
+  'Tours' => 'Экскурсии',
+  'Tour categories' => 'Категории экскурсий',
+  'Places' => 'Заведения',
+  'Place reviews' => 'Отзывы',
+  'Service category' => 'Категории услуг',
+  'Services' => 'Услуги',
 );

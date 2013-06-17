@@ -101,21 +101,14 @@
 
                 // Геокодируем его и кладем полученные координаты в скрытые поля формы location_lng и location_lat
                 ymaps.geocode(address, {results: 1, boundedBy: map.getBounds()}).then(function (result) {
-                    if (placemark != null) {
-                        map.geoObjects.remove(placemark);
+                    if ( null != point ) {
+                        map.geoObjects.remove(point);
                     }
                     var obj = result.geoObjects.get(0);
-                    placemark = new ymaps.Placemark(obj.geometry.getCoordinates(), {
-                        hintContent: address
-                    }, {
-                        preset: 'twirl#houseIcon'
-                    });
 
-                    setHiddenCoords(placemark.geometry.getCoordinates());
-
-                    map.setCenter(placemark.geometry.getCoordinates());
+                    createPoint(obj.geometry.getCoordinates());
+                    map.setCenter(point.geometry.getCoordinates());
                     map.setZoom(16);
-                    map.geoObjects.add(placemark);
                 });
             }
 
@@ -123,6 +116,18 @@
             function setHiddenCoords(coords) {
                 $('#Place_location_lng').val(coords[0]);
                 $('#Place_location_lat').val(coords[1]);
+            }
+
+            // Вспомогательный метод создания точки на карте
+            function createPoint(coords) {
+                point = new ymaps.Placemark(coords, {}, {"draggable":true, "preset": "twirl#houseIcon"});
+                point.events.add('dragend', function (e) {
+                    var _this = e.get('target');
+                    $("#Place_address").val("");
+                    setHiddenCoords( _this.geometry.getCoordinates() );
+                });
+                map.geoObjects.add(point);
+                setHiddenCoords(coords);
             }
 
             // При изменении ареса - геокодируем заново
@@ -139,13 +144,7 @@
             map.events.add('click', function(e) {
                 var coords = e.get('coordPosition');
                 if ( null == point ) {
-                    point = new ymaps.Placemark(coords, {}, {"draggable":true});
-                    point.events.add('dragend', function (e) {
-                        var _this = e.get('target');
-                        setHiddenCoords( _this.geometry.getCoordinates() );
-                    });
-                    map.geoObjects.add(point);
-                    setHiddenCoords(coords);
+                    createPoint(coords);
                 }
             });
 

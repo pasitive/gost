@@ -39,7 +39,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 )); ?>
 </div><!-- search-form -->
 
-<?php $this->widget('ext.groupgridview.GroupGridView', array(
+<?php $this->widget('ext.groupGridView.GroupGridView', array(
 	'id'=>'service-cat-grid',
 	'dataProvider'=>$model->search(),
     'mergeColumns' => 'place.title',

@@ -36,7 +36,7 @@ $('.search-form form').submit(function(){
 )); ?>
 </div><!-- search-form -->
 
-<?php $this->widget('ext.groupgridview.GroupGridView', array(
+<?php $this->widget('ext.groupGridView.GroupGridView', array(
 	'id'=>'service-grid',
 	'dataProvider'=>$model->groupByPlaceCatSearch(),
     'mergeColumns' => array('cat.place.title', 'cat.title'),

@@ -17,9 +17,19 @@
  * NOTE, this file must be saved in UTF-8 encoding.
  */
 return array (
-  'Category ID' => '',
-  'Description' => '',
-  'ID' => '',
-  'Image' => '',
-  'Title' => '',
+  'Category ID' => 'ID категории',
+  'Description' => 'Описание',
+  'ID' => 'ID',
+  'Image' => 'Изображение',
+  'Title' => 'Название',
+
+    'List menu item' => 'Список элементов меню',
+    'Create menu item' => 'Создать элемент меню',
+    'Manage menu items' => 'Управление элементами меню',
+    'View Menu item' => 'Просмотр элемента меню',
+    'View menu item' => 'Просмотр элемента меню',
+    'Update menu item' => 'Редактирование элемента меню',
+    'Delete menu item' => 'Удалить элемент меню'
+
+
 );

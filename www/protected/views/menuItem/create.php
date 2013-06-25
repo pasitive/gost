@@ -3,15 +3,15 @@
 /* @var $model MenuItem */
 
 $this->breadcrumbs=array(
-	'Menu Items'=>array('index'),
-	'Create',
+    Yii::t('app', 'Menu items')=>array('index'),
+    Yii::t('app', 'Create'),
 );
 
 $this->menu=array(
-	array('label'=>'List MenuItem', 'url'=>array('index')),
+    array('label'=>Yii::t('MenuItem', 'List menu item'), 'url'=>array('index')),
 );
 ?>
 
-<h1>Create MenuItem</h1>
+<h1><?php echo Yii::t('MenuItem', 'Create menu item'); ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

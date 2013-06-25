@@ -3,15 +3,15 @@
 /* @var $model ServiceCat */
 
 $this->breadcrumbs=array(
-	'Service Cats'=>array('index'),
-	'Create',
+    Yii::t('app', 'Service category')=>array('index'),
+    Yii::t('app', 'Create'),
 );
 
 $this->menu=array(
-	array('label'=>'List ServiceCat', 'url'=>array('index')),
+    array('label'=>Yii::t('ServiceCat', 'List service cat'), 'url'=>array('index')),
 );
 ?>
 
-<h1>Create ServiceCat</h1>
+<h1><?php echo Yii::t('ServiceCat', 'Create service cat'); ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

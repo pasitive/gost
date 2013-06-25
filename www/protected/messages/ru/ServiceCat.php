@@ -17,8 +17,20 @@
  * NOTE, this file must be saved in UTF-8 encoding.
  */
 return array (
-  'ID' => '',
-  'Parent category ID' => '',
-  'Place ID' => '',
-  'Title' => '',
+  'ID' => 'ID',
+  'Parent category ID' => 'ID родительской категории',
+  'Place ID' => 'ID заведения',
+  'Place' => 'Заведение',
+  'Title' => 'Название',
+
+    'List service cat' => 'Список категорий услуг',
+    'List ServiceCat' => 'Список категорий',
+    'Manage' => 'Управлять категориями',
+    'Create service cat' => 'Создать категорию',
+    'Create ServiceCat' => 'Создать категорию',
+    'Manage Service Cats' => 'Управление категориями услуг',
+    'View ServiceCat' => 'Просмотр категории',
+    'Update ServiceCat' => 'Редактирование категории',
+    'Delete ServiceCat' => 'Удалить категорию',
+
 );

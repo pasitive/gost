@@ -3,8 +3,8 @@
 /* @var $model MenuCat */
 
 $this->breadcrumbs=array(
-    Yii::t('MenuCat', 'Menu categories'),
-	'Create',
+    Yii::t('app', 'Menu categories')=>array('index'),
+    Yii::t('app', 'Create'),
 );
 
 $this->menu=array(

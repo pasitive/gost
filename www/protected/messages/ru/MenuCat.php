@@ -17,15 +17,17 @@
  * NOTE, this file must be saved in UTF-8 encoding.
  */
 return array (
-  'Create menu category' => '',
-  'Delete menu category' => '',
-  'ID' => '',
-  'List menu categories' => '',
-  'Manage menu categories' => '',
-  'Menu categories' => '',
-  'Parent ID' => '',
-  'Place ID' => '',
-  'Title' => '',
-  'Update menu category' => '',
-  'View menu category' => '',
+  'Create menu category' => 'Создать категорию меню',
+  'Delete menu category' => 'Удалить категорию меню',
+  'ID' => 'ID',
+  'List menu categories' => 'Список категорий меню',
+  'Manage menu categories' => 'Управление категориями меню',
+  'Menu categories' => 'Категории меню',
+  'Parent ID' => 'ID родительской категории',
+  'Place ID' => 'ID заведения',
+  'Title' => 'Название',
+  'Update menu category' => 'Редактировать категорию',
+  'View menu category' => 'Просмотр категории',
+    'Menu category' => 'Категория',
+    'Update menu category' => 'Редактировать категорию',
 );

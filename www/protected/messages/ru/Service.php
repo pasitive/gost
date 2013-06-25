@@ -17,10 +17,18 @@
  * NOTE, this file must be saved in UTF-8 encoding.
  */
 return array (
-  'Description' => '',
-  'ID' => '',
-  'Image' => '',
-  'Price' => '',
-  'Service category ID' => '',
-  'Title' => '',
+  'Description' => 'Описание',
+  'ID' => 'ID',
+  'Image' => 'Изображение',
+  'Price' => 'Цена',
+  'Service category ID' => 'ID категории услуг',
+  'Service category' => 'Категория услуг',
+  'Title' => 'Название',
+    'Create service'=>'Создать услугу',
+    'Manage services'=>'Управление услугами',
+    'List service' => 'Список услуг',
+    'View service' => 'Просмотр услуги',
+    'Update service' => 'Редактировать услугу',
+    'Delete service' => 'Удалить услугу',
+
 );

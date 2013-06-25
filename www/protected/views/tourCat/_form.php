@@ -99,7 +99,7 @@ if ( null == $model->place ) {
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? Yii::t('TourCat', 'Create') : Yii::t('TourCat', 'Save')); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

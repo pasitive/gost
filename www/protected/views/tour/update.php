@@ -3,18 +3,18 @@
 /* @var $model Tour */
 
 $this->breadcrumbs=array(
-	'Tours'=>array('index'),
+    Yii::t('Tour', 'Tours')=>array('index'),
 	$model->title=>array('view','id'=>$model->id),
-	'Update',
+    Yii::t('Tour', 'Update'),
 );
 
 $this->menu=array(
-	array('label'=>'List Tour', 'url'=>array('index')),
-	array('label'=>'Create Tour', 'url'=>array('create')),
-	array('label'=>'View Tour', 'url'=>array('view', 'id'=>$model->id)),
+	array('label'=>Yii::t('Tour', 'List Tours'), 'url'=>array('index')),
+	array('label'=>Yii::t('Tour', 'Create Tour'), 'url'=>array('create')),
+	array('label'=>Yii::t('Tour', 'View Tour'), 'url'=>array('view', 'id'=>$model->id)),
 );
 ?>
 
-<h1>Update Tour <?php echo $model->id; ?></h1>
+<h1><?php echo Yii::t('Tour', 'Update Tour').' '.$model->id; ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

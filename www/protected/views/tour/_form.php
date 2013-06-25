@@ -127,7 +127,7 @@ if ( null == $model->cat ) {
     </div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? Yii::t('Tour', 'Create') : Yii::t('Tour', 'Save')); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

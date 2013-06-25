@@ -3,13 +3,13 @@
 /* @var $model TourCat */
 
 $this->breadcrumbs=array(
-	'Tour Cats'=>array('index'),
-	'Manage',
+    Yii::t('TourCat', 'Tour Cats')=>array('index'),
+    Yii::t('TourCat', 'List Tour Cats'),
 );
 
 $this->menu=array(
-	array('label'=>'List TourCat', 'url'=>array('index')),
-	array('label'=>'Create TourCat', 'url'=>array('create')),
+	array('label'=>Yii::t('TourCat', 'List Tour Cats'), 'url'=>array('index')),
+	array('label'=>Yii::t('TourCat', 'Create TourCat'), 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Tour Cats</h1>
+<h1><?php echo Yii::t('TourCat', 'List Tour Cats'); ?></h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>

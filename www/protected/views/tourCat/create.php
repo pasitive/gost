@@ -3,15 +3,15 @@
 /* @var $model TourCat */
 
 $this->breadcrumbs=array(
-	'Tour Cats'=>array('index'),
-	'Create',
+    Yii::t('TourCat', 'Tour Cats')=>array('index'),
+    Yii::t('TourCat', 'Create'),
 );
 
 $this->menu=array(
-	array('label'=>'List TourCat', 'url'=>array('index')),
+	array('label'=>Yii::t('TourCat', 'List Tour Cats'), 'url'=>array('index')),
 );
 ?>
 
-<h1>Create TourCat</h1>
+<h1><?php echo Yii::t('TourCat', 'Create TourCat'); ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
